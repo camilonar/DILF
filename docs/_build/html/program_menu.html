@@ -1,0 +1,311 @@
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <title>program_menu module &#8212; DILF 1.0.0 documentation</title>
+    <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="_static/language_data.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="program_shell module" href="program_shell.html" />
+    <link rel="prev" title="networks package" href="networks.html" />
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="module-program_menu">
+<span id="program-menu-module"></span><h1>program_menu module<a class="headerlink" href="#module-program_menu" title="Permalink to this headline">¶</a></h1>
+<p>This module acts as a menu interface for performing the experiments</p>
+<dl class="function">
+<dt id="program_menu.ask_for_configuration">
+<code class="descclassname">program_menu.</code><code class="descname">ask_for_configuration</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#program_menu.ask_for_configuration" title="Permalink to this definition">¶</a></dt>
+<dd><p>Asks the user for the following configurations for a test:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>Dataset</p></li>
+<li><p>Optimizer (between the supported types)</p></li>
+<li><p>Load of a checkpoint (Optional)</p></li>
+<li><p>Learning Rate (Optional)</p></li>
+<li><p>Summary Interval (Optional)</p></li>
+<li><p>Checkpoint Interval (Optional)</p></li>
+<li><p>Seed for random numbers (Optional)</p></li>
+</ul>
+</div></blockquote>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>a tuple containing 3 strings, 2 ints and a float: name of the dataset (str), name of the optimizer (str),
+representation of a checkpoint (str), summary interval (int), checkpoint interval (int) and seed (float)
+in that order. The representation of a checkpoint will be returned as None if the user doesn’t configure it.
+An example of a return value is: (‘MNIST’, ‘TR_BASE’, None, 100, 300, 12345).</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="program_menu.configure_checkpoint">
+<code class="descclassname">program_menu.</code><code class="descname">configure_checkpoint</code><span class="sig-paren">(</span><em>curr_ckp: str</em><span class="sig-paren">)</span><a class="headerlink" href="#program_menu.configure_checkpoint" title="Permalink to this definition">¶</a></dt>
+<dd><p>Configures a representation of a checkpoint based in the corresponding increment (mega-batch) and iteration given
+by the user. Notice that this function <strong>DOES NOT</strong> check if the given checkpoint is valid. Also, the full
+checkpoint path must be created at a later moment, since that path is heavily dependent of other parameters like
+Dataset and Optimizer that may change during configuration time.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>curr_ckp</strong> – a string representing the increment and iteration of a checkpoint. It must be in the form:
+<em>“[increment]-[iteration]”</em>, e.g. “1-20”</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>a string representing the new checkpoint if the user has changed it, otherwise, the current checkpoint will
+be returned. A value of None will be returned if there was a checkpoint already configured and the user decided
+to not load a checkpoint anymore.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="program_menu.configure_dataset_and_neural_net">
+<code class="descclassname">program_menu.</code><code class="descname">configure_dataset_and_neural_net</code><span class="sig-paren">(</span><em>curr_dataset: str</em><span class="sig-paren">)</span><a class="headerlink" href="#program_menu.configure_dataset_and_neural_net" title="Permalink to this definition">¶</a></dt>
+<dd><p>Configures the optimizer appropriately</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>curr_dataset</strong> – the current dataset that has been configured by the user</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>a str representing the new dataset if the user has changed it to a valid value, otherwise, the current
+dataset will be returned</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="program_menu.configure_intervals">
+<code class="descclassname">program_menu.</code><code class="descname">configure_intervals</code><span class="sig-paren">(</span><em>curr_s_interval: int</em>, <em>curr_ckp_interval: int</em><span class="sig-paren">)</span><a class="headerlink" href="#program_menu.configure_intervals" title="Permalink to this definition">¶</a></dt>
+<dd><p>Configures the summary interval and checkpoint interval</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>curr_s_interval</strong> – the current summary interval that has been configured by the user</p></li>
+<li><p><strong>curr_ckp_interval</strong> – the current checkpoint interval that has been configured by the user</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>a tuple with 2 integers: the new summary interval and the new checkpoint interval if the user has changed
+them to a valid value, otherwise, the current summary and checkpoint intervals will be returned</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="program_menu.configure_optimizer">
+<code class="descclassname">program_menu.</code><code class="descname">configure_optimizer</code><span class="sig-paren">(</span><em>curr_optimizer: str</em><span class="sig-paren">)</span><a class="headerlink" href="#program_menu.configure_optimizer" title="Permalink to this definition">¶</a></dt>
+<dd><p>Configures the optimizer appropriately</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>curr_optimizer</strong> – the current optimizer that has been configured by the user</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>a str representing the new optimizer if the user has changed it to a valid value, otherwise, the current
+optimizer will be returned</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="program_menu.configure_seed">
+<code class="descclassname">program_menu.</code><code class="descname">configure_seed</code><span class="sig-paren">(</span><em>curr_seed: int</em><span class="sig-paren">)</span><a class="headerlink" href="#program_menu.configure_seed" title="Permalink to this definition">¶</a></dt>
+<dd><p>Asks the user for the seed for random number generators</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>curr_seed</strong> – the current value of the seed</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>an int corresponding to the new seed if the user has changed it to a valid value, otherwise, the current
+seed will be returned</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>int</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="program_menu.get_checkpoint">
+<code class="descclassname">program_menu.</code><code class="descname">get_checkpoint</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#program_menu.get_checkpoint" title="Permalink to this definition">¶</a></dt>
+<dd><p>Ask the user for the values of increment and iteration for the checkpoint</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>a string representing the increment and iteration, with the format <em>“[increment]-[iteration]”</em>, e.g. “0-50”</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="program_menu.get_checkpoint_multiplier">
+<code class="descclassname">program_menu.</code><code class="descname">get_checkpoint_multiplier</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#program_menu.get_checkpoint_multiplier" title="Permalink to this definition">¶</a></dt>
+<dd><p>Ask the user for the multiplier for the checkpoint interval, since this interval must be a multiple of the summary
+interval</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>an int greater than 0 that corresponds to the multiplier selected by the User, or -1 if the User cancels
+the operation</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>int</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="program_menu.main">
+<code class="descclassname">program_menu.</code><code class="descname">main</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#program_menu.main" title="Permalink to this definition">¶</a></dt>
+<dd><p>Executes the program</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="program_menu.print_menu">
+<code class="descclassname">program_menu.</code><code class="descname">print_menu</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#program_menu.print_menu" title="Permalink to this definition">¶</a></dt>
+<dd><p>Prints the menu for the configuration of a Test</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>a str, corresponding to the response of the user</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="program_menu.reset_checkpoint">
+<code class="descclassname">program_menu.</code><code class="descname">reset_checkpoint</code><span class="sig-paren">(</span><em>curr_ckp: str</em><span class="sig-paren">)</span><a class="headerlink" href="#program_menu.reset_checkpoint" title="Permalink to this definition">¶</a></dt>
+<dd><p>Resets the checkpoint</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>curr_ckp</strong> – a string representing the increment and iteration of a checkpoint.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>None if the checkpoint is reset, otherwise, the current checkpoint will be returned</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="index.html">DILF</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="modules.html">DILF</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="errors.html">errors module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="etl.html">etl package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="experiments.html">experiments package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="libs.html">libs package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="networks.html">networks package</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">program_menu module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="program_shell.html">program_shell module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="training.html">training package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="utils.html">utils package</a></li>
+</ul>
+</li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="index.html">Documentation overview</a><ul>
+  <li><a href="modules.html">DILF</a><ul>
+      <li>Previous: <a href="networks.html" title="previous chapter">networks package</a></li>
+      <li>Next: <a href="program_shell.html" title="next chapter">program_shell module</a></li>
+  </ul></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2019, Camilo Narvaez, David Munoz, Carlos Cobos.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 2.0.1</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="_sources/program_menu.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

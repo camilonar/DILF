@@ -1,0 +1,38 @@
+experiments.cifar10 package
+===========================
+
+Submodules
+----------
+
+experiments.cifar10.cifar\_exp module
+-------------------------------------
+
+.. automodule:: experiments.cifar10.cifar_exp
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+experiments.cifar10.cifar\_exp\_rep module
+------------------------------------------
+
+.. automodule:: experiments.cifar10.cifar_exp_rep
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+experiments.cifar10.cifar\_exp\_rms module
+------------------------------------------
+
+.. automodule:: experiments.cifar10.cifar_exp_rms
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+
+Module contents
+---------------
+
+.. automodule:: experiments.cifar10
+    :members:
+    :undoc-members:
+    :show-inheritance:

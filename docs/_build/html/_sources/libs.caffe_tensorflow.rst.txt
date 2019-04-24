@@ -1,0 +1,22 @@
+libs.caffe\_tensorflow package
+==============================
+
+Submodules
+----------
+
+libs.caffe\_tensorflow.network module
+-------------------------------------
+
+.. automodule:: libs.caffe_tensorflow.network
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+
+Module contents
+---------------
+
+.. automodule:: libs.caffe_tensorflow
+    :members:
+    :undoc-members:
+    :show-inheritance:

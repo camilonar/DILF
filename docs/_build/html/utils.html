@@ -1,0 +1,473 @@
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <title>utils package &#8212; DILF 1.0.0 documentation</title>
+    <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="_static/language_data.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="prev" title="training.trainer package" href="training.trainer.html" />
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="utils-package">
+<h1>utils package<a class="headerlink" href="#utils-package" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="module-utils.constants">
+<span id="utils-constants-module"></span><h2>utils.constants module<a class="headerlink" href="#module-utils.constants" title="Permalink to this headline">¶</a></h2>
+<p>This module has constants used across the program</p>
+<dl class="data">
+<dt id="utils.constants.CKP_INTERVAL">
+<code class="descclassname">utils.constants.</code><code class="descname">CKP_INTERVAL</code><em class="property"> = 5000</em><a class="headerlink" href="#utils.constants.CKP_INTERVAL" title="Permalink to this definition">¶</a></dt>
+<dd><p>Default value for the interval (Number of iterations) at which checkpoints are being saved</p>
+</dd></dl>
+
+<dl class="data">
+<dt id="utils.constants.DATA_CALTECH_101">
+<code class="descclassname">utils.constants.</code><code class="descname">DATA_CALTECH_101</code><em class="property"> = 'CALTECH-101'</em><a class="headerlink" href="#utils.constants.DATA_CALTECH_101" title="Permalink to this definition">¶</a></dt>
+<dd><p>Name for CALTECH 101</p>
+</dd></dl>
+
+<dl class="data">
+<dt id="utils.constants.DATA_CALTECH_256">
+<code class="descclassname">utils.constants.</code><code class="descname">DATA_CALTECH_256</code><em class="property"> = 'CALTECH-256'</em><a class="headerlink" href="#utils.constants.DATA_CALTECH_256" title="Permalink to this definition">¶</a></dt>
+<dd><p>Name for CALTECH 256</p>
+</dd></dl>
+
+<dl class="data">
+<dt id="utils.constants.DATA_CIFAR_10">
+<code class="descclassname">utils.constants.</code><code class="descname">DATA_CIFAR_10</code><em class="property"> = 'CIFAR-10'</em><a class="headerlink" href="#utils.constants.DATA_CIFAR_10" title="Permalink to this definition">¶</a></dt>
+<dd><p>Name for CIFAR-10</p>
+</dd></dl>
+
+<dl class="data">
+<dt id="utils.constants.DATA_CIFAR_100">
+<code class="descclassname">utils.constants.</code><code class="descname">DATA_CIFAR_100</code><em class="property"> = 'CIFAR-100'</em><a class="headerlink" href="#utils.constants.DATA_CIFAR_100" title="Permalink to this definition">¶</a></dt>
+<dd><p>Name for CIFAR-100</p>
+</dd></dl>
+
+<dl class="data">
+<dt id="utils.constants.DATA_FASHION_MNIST">
+<code class="descclassname">utils.constants.</code><code class="descname">DATA_FASHION_MNIST</code><em class="property"> = 'FASHION-MNIST'</em><a class="headerlink" href="#utils.constants.DATA_FASHION_MNIST" title="Permalink to this definition">¶</a></dt>
+<dd><p>Name for Fashion MNIST</p>
+</dd></dl>
+
+<dl class="data">
+<dt id="utils.constants.DATA_MNIST">
+<code class="descclassname">utils.constants.</code><code class="descname">DATA_MNIST</code><em class="property"> = 'MNIST'</em><a class="headerlink" href="#utils.constants.DATA_MNIST" title="Permalink to this definition">¶</a></dt>
+<dd><p>Name for MNIST</p>
+</dd></dl>
+
+<dl class="data">
+<dt id="utils.constants.DATA_TINY_IMAGENET">
+<code class="descclassname">utils.constants.</code><code class="descname">DATA_TINY_IMAGENET</code><em class="property"> = 'TINY IMAGENET'</em><a class="headerlink" href="#utils.constants.DATA_TINY_IMAGENET" title="Permalink to this definition">¶</a></dt>
+<dd><p>Name for Tiny Imagenet</p>
+</dd></dl>
+
+<dl class="data">
+<dt id="utils.constants.SEED">
+<code class="descclassname">utils.constants.</code><code class="descname">SEED</code><em class="property"> = 12345</em><a class="headerlink" href="#utils.constants.SEED" title="Permalink to this definition">¶</a></dt>
+<dd><p>Default value for the seed for random values</p>
+</dd></dl>
+
+<dl class="data">
+<dt id="utils.constants.SUMMARY_INTERVAL">
+<code class="descclassname">utils.constants.</code><code class="descname">SUMMARY_INTERVAL</code><em class="property"> = 200</em><a class="headerlink" href="#utils.constants.SUMMARY_INTERVAL" title="Permalink to this definition">¶</a></dt>
+<dd><p>Default value for the interval (Number of iterations) at which validation/testing are performed</p>
+</dd></dl>
+
+<dl class="data">
+<dt id="utils.constants.TRAIN_MODE">
+<code class="descclassname">utils.constants.</code><code class="descname">TRAIN_MODE</code><em class="property"> = &lt;TrainMode.INCREMENTAL: 0&gt;</em><a class="headerlink" href="#utils.constants.TRAIN_MODE" title="Permalink to this definition">¶</a></dt>
+<dd><p>It specifies the default Training Mode</p>
+</dd></dl>
+
+<dl class="data">
+<dt id="utils.constants.TR_BASE">
+<code class="descclassname">utils.constants.</code><code class="descname">TR_BASE</code><em class="property"> = 'TR_BASE'</em><a class="headerlink" href="#utils.constants.TR_BASE" title="Permalink to this definition">¶</a></dt>
+<dd><p>Name for the trainer that uses RMSProp</p>
+</dd></dl>
+
+<dl class="data">
+<dt id="utils.constants.TR_REP">
+<code class="descclassname">utils.constants.</code><code class="descname">TR_REP</code><em class="property"> = 'TR_REP'</em><a class="headerlink" href="#utils.constants.TR_REP" title="Permalink to this definition">¶</a></dt>
+<dd><p>Name for the trainer that uses Representatives for training</p>
+</dd></dl>
+
+</div>
+<div class="section" id="module-utils.default_paths">
+<span id="utils-default-paths-module"></span><h2>utils.default_paths module<a class="headerlink" href="#module-utils.default_paths" title="Permalink to this headline">¶</a></h2>
+<p>This module has the default paths for the four datasets supported in the base version:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>MNIST</p></li>
+<li><p>CIFAR-10</p></li>
+<li><p>CIFAR-100</p></li>
+<li><p>FASHION MNIST</p></li>
+<li><p>CALTECH-101</p></li>
+<li><p>TINY IMAGENET</p></li>
+</ul>
+</div></blockquote>
+<p>It also contains paths to the weights of some networks that use transfer learning</p>
+<dl class="data">
+<dt id="utils.default_paths.CALTECH_101_PATH">
+<code class="descclassname">utils.default_paths.</code><code class="descname">CALTECH_101_PATH</code><em class="property"> = '..\\datasets\\101_ObjectCategories_EXTRA'</em><a class="headerlink" href="#utils.default_paths.CALTECH_101_PATH" title="Permalink to this definition">¶</a></dt>
+<dd><p>Default path for the directory where Caltech 101 is stored</p>
+</dd></dl>
+
+<dl class="data">
+<dt id="utils.default_paths.CALTECH_256_PATH">
+<code class="descclassname">utils.default_paths.</code><code class="descname">CALTECH_256_PATH</code><em class="property"> = '..\\datasets\\256_ObjectCategories'</em><a class="headerlink" href="#utils.default_paths.CALTECH_256_PATH" title="Permalink to this definition">¶</a></dt>
+<dd><p>Default path for the directory where Caltech 256 is stored</p>
+</dd></dl>
+
+<dl class="data">
+<dt id="utils.default_paths.CIFAR_100_PATH">
+<code class="descclassname">utils.default_paths.</code><code class="descname">CIFAR_100_PATH</code><em class="property"> = '..\\datasets\\cifar-100'</em><a class="headerlink" href="#utils.default_paths.CIFAR_100_PATH" title="Permalink to this definition">¶</a></dt>
+<dd><p>Default path for the directory where CIFAR-100 is stored</p>
+</dd></dl>
+
+<dl class="data">
+<dt id="utils.default_paths.CIFAR_10_PATH">
+<code class="descclassname">utils.default_paths.</code><code class="descname">CIFAR_10_PATH</code><em class="property"> = '..\\datasets\\CIFAR10_EXTRA'</em><a class="headerlink" href="#utils.default_paths.CIFAR_10_PATH" title="Permalink to this definition">¶</a></dt>
+<dd><p>Default path for the directory where CIFAR-10 is stored</p>
+</dd></dl>
+
+<dl class="data">
+<dt id="utils.default_paths.FASHION_MNIST_PATH">
+<code class="descclassname">utils.default_paths.</code><code class="descname">FASHION_MNIST_PATH</code><em class="property"> = '..\\datasets\\FASHION-MNIST_EXTRA'</em><a class="headerlink" href="#utils.default_paths.FASHION_MNIST_PATH" title="Permalink to this definition">¶</a></dt>
+<dd><p>Default path for the directory where Fashion MNIST is stored</p>
+</dd></dl>
+
+<dl class="data">
+<dt id="utils.default_paths.MNIST_PATH">
+<code class="descclassname">utils.default_paths.</code><code class="descname">MNIST_PATH</code><em class="property"> = '..\\datasets\\MNIST_EXTRA'</em><a class="headerlink" href="#utils.default_paths.MNIST_PATH" title="Permalink to this definition">¶</a></dt>
+<dd><p>Default path for the directory where MNIST is stored</p>
+</dd></dl>
+
+<dl class="data">
+<dt id="utils.default_paths.TINY_IMAGENET_PATH">
+<code class="descclassname">utils.default_paths.</code><code class="descname">TINY_IMAGENET_PATH</code><em class="property"> = '..\\datasets\\tiny-imagenet-200'</em><a class="headerlink" href="#utils.default_paths.TINY_IMAGENET_PATH" title="Permalink to this definition">¶</a></dt>
+<dd><p>Default path for the directory where Tiny Imagenet is stored</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="utils.default_paths.get_alexnet_weights_path">
+<code class="descclassname">utils.default_paths.</code><code class="descname">get_alexnet_weights_path</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#utils.default_paths.get_alexnet_weights_path" title="Permalink to this definition">¶</a></dt>
+<dd><p>It gives the default path of the weights of an AlexNet network previously trained over Imagenet</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>a string corresponding to a relative path</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="utils.default_paths.get_paths_from_dataset">
+<code class="descclassname">utils.default_paths.</code><code class="descname">get_paths_from_dataset</code><span class="sig-paren">(</span><em>dataset: str</em>, <em>base_folder: str = None</em><span class="sig-paren">)</span><a class="headerlink" href="#utils.default_paths.get_paths_from_dataset" title="Permalink to this definition">¶</a></dt>
+<dd><p>It gives the default paths to the training and testing data of the supported dataset</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>dataset</strong> – a string representing the dataset</p></li>
+<li><p><strong>base_folder</strong> – the base directory where the dataset is located. If it’s not provided, then the default values
+for each dataset will be used</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>a tuple, where the first value is an array of strings corresponding to the paths of each one of the
+mega-batches for training (if is_incremental is set to False then this array contains only 1 value corresponding
+to the path to the training data), the second value is a string corresponding to the path of the testing data,
+and the third value is an array of strings corresponding to paths specific for each dataset (e.g. bounding box
+archive path, metadata file path. The third value is an empty array in the case that the requested dataset
+doesn’t have dataset-specific paths.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="utils.default_paths.get_vgg16_weights_path">
+<code class="descclassname">utils.default_paths.</code><code class="descname">get_vgg16_weights_path</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#utils.default_paths.get_vgg16_weights_path" title="Permalink to this definition">¶</a></dt>
+<dd><p>It gives the default path of the weights of a VGG16 network previously trained over Imagenet</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>a string corresponding to a relative path</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="module-utils.dir_utils">
+<span id="utils-dir-utils-module"></span><h2>utils.dir_utils module<a class="headerlink" href="#module-utils.dir_utils" title="Permalink to this headline">¶</a></h2>
+<p>Module with utility functions for directories and paths’ management</p>
+<dl class="function">
+<dt id="utils.dir_utils.create_full_checkpoint_path">
+<code class="descclassname">utils.dir_utils.</code><code class="descname">create_full_checkpoint_path</code><span class="sig-paren">(</span><em>model_name: str</em>, <em>config_name: str</em>, <em>inc_ckp_path: str</em>, <em>root='checkpoints'</em>, <em>ext='.ckpt'</em><span class="sig-paren">)</span><a class="headerlink" href="#utils.dir_utils.create_full_checkpoint_path" title="Permalink to this definition">¶</a></dt>
+<dd><p>Creates the full relative path to a checkpoint. It also checks if the path exists</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>model_name</strong> – the name of the dataset corresponding to the checkpoint (e.g. Imagenet)</p></li>
+<li><p><strong>config_name</strong> – the name of the Optimizer corresponding to the checkpoint (e.g. CEAL)</p></li>
+<li><p><strong>inc_ckp_path</strong> – a string representing the mega-batch and iteration corresponding to the checkpoint. It is
+expected to follow the format <em>“[mega-batch]-[iteration]”</em>, e.g. “0-50”.</p></li>
+<li><p><strong>root</strong> – the root directory where checkpoints are being stored</p></li>
+<li><p><strong>ext</strong> – the extension of checkpoint files</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>a tuple containing the generated path (str) and a boolean that says whether or not the generated path is
+a file that actually exists</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="utils.dir_utils.get_unique_logdir">
+<code class="descclassname">utils.dir_utils.</code><code class="descname">get_unique_logdir</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#utils.dir_utils.get_unique_logdir" title="Permalink to this definition">¶</a></dt>
+<dd><p>Creates an unique logging directory based on current datetime (year, month, …, seconds)</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>a string with a directory name. The returned value <strong>DOES NOT</strong> have any OS specific separator, e.g.
+it would return ‘log_2018-10-04-49-24’ and not ‘log_2018-10-04-49-24/’</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="utils.dir_utils.prepare_directories">
+<code class="descclassname">utils.dir_utils.</code><code class="descname">prepare_directories</code><span class="sig-paren">(</span><em>config: training.config.general_config.GeneralConfig</em><span class="sig-paren">)</span><a class="headerlink" href="#utils.dir_utils.prepare_directories" title="Permalink to this definition">¶</a></dt>
+<dd><p>Creates and prepares the directories of checkpoints and summaries for TensorBoard</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>config</strong> – the configuration that is going to be used in the whole training</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>a tuple containing a path for a checkpoint directory and a path for a summaries directory</p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="module-utils.exp_helper">
+<span id="utils-exp-helper-module"></span><h2>utils.exp_helper module<a class="headerlink" href="#module-utils.exp_helper" title="Permalink to this headline">¶</a></h2>
+<p>Module with useful functions for performing an experiment</p>
+<dl class="function">
+<dt id="utils.exp_helper.perform_experiment">
+<code class="descclassname">utils.exp_helper.</code><code class="descname">perform_experiment</code><span class="sig-paren">(</span><em>dataset_name: str, optimizer_name: str, checkpoint_key: str, s_interval: int, ckp_interval: int, seed: int, train_mode: utils.train_modes.TrainMode, train_dirs: [&lt;class 'str'&gt;], validation_dir: str</em><span class="sig-paren">)</span><a class="headerlink" href="#utils.exp_helper.perform_experiment" title="Permalink to this definition">¶</a></dt>
+<dd><p>Prepares and performs the experiment according to the configuration given by the user</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>dataset_name</strong> – a string representing the dataset that has been configured by the user</p></li>
+<li><p><strong>optimizer_name</strong> – a string representing the optimizer that has been configured by the user</p></li>
+<li><p><strong>checkpoint_key</strong> – a string representing a checkpoint. Must be None if no checkpoint has been configured</p></li>
+<li><p><strong>s_interval</strong> – the summary interval that has been configured by the user</p></li>
+<li><p><strong>ckp_interval</strong> – the checkpoint interval that has been configured by the user</p></li>
+<li><p><strong>seed</strong> – the seed for random numbers</p></li>
+<li><p><strong>train_mode</strong> – Indicates the training mode that is going to be used</p></li>
+<li><p><strong>train_dirs</strong> – array of strings corresponding to the paths of each one of the mega-batches for training</p></li>
+<li><p><strong>validation_dir</strong> – a string corresponding to the path of the testing data</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="utils.exp_helper.print_config">
+<code class="descclassname">utils.exp_helper.</code><code class="descname">print_config</code><span class="sig-paren">(</span><em>dataset: str, optimizer: str, checkpoint_key: str, s_interval: int, ckp_interval: int, seed: int, train_mode: utils.train_modes.TrainMode, train_dirs: [&lt;class 'str'&gt;], validation_dir: str, is_menu: bool = True</em><span class="sig-paren">)</span><a class="headerlink" href="#utils.exp_helper.print_config" title="Permalink to this definition">¶</a></dt>
+<dd><p>Prints the configuration selected by the user</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>dataset</strong> – a string representing the dataset that has been configured by the user</p></li>
+<li><p><strong>optimizer</strong> – a string representing the optimizer that has been configured by the user</p></li>
+<li><p><strong>checkpoint_key</strong> – a string representing a checkpoint. Must be None if no checkpoint has been configured</p></li>
+<li><p><strong>s_interval</strong> – the summary interval that has been configured by the user</p></li>
+<li><p><strong>ckp_interval</strong> – the checkpoint interval that has been configured by the user if the dataset doesn’t have
+any dataset-specific path.</p></li>
+<li><p><strong>seed</strong> – the seed for random numbers</p></li>
+<li><p><strong>train_mode</strong> – Indicates the training mode that is going to be used</p></li>
+<li><p><strong>train_dirs</strong> – array of strings corresponding to the paths of each one of the mega-batches for training</p></li>
+<li><p><strong>validation_dir</strong> – a string corresponding to the path of the testing data</p></li>
+<li><p><strong>is_menu</strong> – boolean value. If set to True the menu version is used (asks for extra input)</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="module-utils.read_tensorboard">
+<span id="utils-read-tensorboard-module"></span><h2>utils.read_tensorboard module<a class="headerlink" href="#module-utils.read_tensorboard" title="Permalink to this headline">¶</a></h2>
+<p>This helper module reads multiple tests results (TensorBoard summaries) and converts them into a single folder with the
+average results of the metrics over all the executions</p>
+<dl class="function">
+<dt id="utils.read_tensorboard.create_average_from_tests">
+<code class="descclassname">utils.read_tensorboard.</code><code class="descname">create_average_from_tests</code><span class="sig-paren">(</span><em>tests_folder: str</em>, <em>metric_tags</em>, <em>output_folder</em><span class="sig-paren">)</span><a class="headerlink" href="#utils.read_tensorboard.create_average_from_tests" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reads the results from a set of tests relating to the same overall Experiment and produces files with the
+average results of the tests. This files can be read by TensorBoard</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>tests_folder</strong> – the root folder where all the tests are located (e.g. ../summaries/CIFAR-10/TR_BASE). This
+folder must have the tests results located in one subfolder each, following the structure of summaries
+provided by the framework</p></li>
+<li><p><strong>metric_tags</strong> – a list of strings containing the metrics to be read (e.g. [‘loss’, ‘accuracy’]</p></li>
+<li><p><strong>output_folder</strong> – the root folder where the results are going to be written</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="module-utils.train_modes">
+<span id="utils-train-modes-module"></span><h2>utils.train_modes module<a class="headerlink" href="#module-utils.train_modes" title="Permalink to this headline">¶</a></h2>
+<p>Module for defining training modes (e.g. training incrementally or accumulating the data of multiple megabatches)</p>
+<dl class="class">
+<dt id="utils.train_modes.TrainMode">
+<em class="property">class </em><code class="descclassname">utils.train_modes.</code><code class="descname">TrainMode</code><a class="headerlink" href="#utils.train_modes.TrainMode" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">enum.Enum</span></code></p>
+<p>Enum for multiple training modes</p>
+<dl class="attribute">
+<dt id="utils.train_modes.TrainMode.ACUMULATIVE">
+<code class="descname">ACUMULATIVE</code><em class="property"> = 1</em><a class="headerlink" href="#utils.train_modes.TrainMode.ACUMULATIVE" title="Permalink to this definition">¶</a></dt>
+<dd><p>Used when the data is presented in an acumulative way, that is, the megabatch 0 is presented, then megabatch 0 +
+megabatch 1, then megabatch 0 + megabatch 1 + megabatch 2, …</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="utils.train_modes.TrainMode.INCREMENTAL">
+<code class="descname">INCREMENTAL</code><em class="property"> = 0</em><a class="headerlink" href="#utils.train_modes.TrainMode.INCREMENTAL" title="Permalink to this definition">¶</a></dt>
+<dd><p>Used when the data is presented in an strictly incremental way, that is, the megabatch 0 is presented, then
+megabatch 1, …, and the data of a previously seen is not including for future training. This mode does not exclude
+the possibility of iterating multiple times over a single megabatch.</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-utils">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-utils" title="Permalink to this headline">¶</a></h2>
+</div>
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="index.html">DILF</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="modules.html">DILF</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="errors.html">errors module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="etl.html">etl package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="experiments.html">experiments package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="libs.html">libs package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="networks.html">networks package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="program_menu.html">program_menu module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="program_shell.html">program_shell module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="training.html">training package</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">utils package</a></li>
+</ul>
+</li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="index.html">Documentation overview</a><ul>
+  <li><a href="modules.html">DILF</a><ul>
+      <li>Previous: <a href="training.trainer.html" title="previous chapter">training.trainer package</a></li>
+  </ul></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2019, Camilo Narvaez, David Munoz, Carlos Cobos.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 2.0.1</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="_sources/utils.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

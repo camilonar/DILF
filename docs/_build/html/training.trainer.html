@@ -1,0 +1,222 @@
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <title>training.trainer package &#8212; DILF 1.0.0 documentation</title>
+    <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="_static/language_data.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="utils package" href="utils.html" />
+    <link rel="prev" title="training.support package" href="training.support.html" />
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="training-trainer-package">
+<h1>training.trainer package<a class="headerlink" href="#training-trainer-package" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="module-training.trainer.rep_trainer">
+<span id="training-trainer-rep-trainer-module"></span><h2>training.trainer.rep_trainer module<a class="headerlink" href="#module-training.trainer.rep_trainer" title="Permalink to this headline">¶</a></h2>
+<p>An algorithm that uses RMSProp and representatives selection for incremental learning</p>
+<dl class="class">
+<dt id="training.trainer.rep_trainer.Representative">
+<em class="property">class </em><code class="descclassname">training.trainer.rep_trainer.</code><code class="descname">Representative</code><span class="sig-paren">(</span><em>value</em>, <em>label</em>, <em>metric</em>, <em>iteration</em>, <em>megabatch</em>, <em>net_output=None</em>, <em>crowd_distance=None</em><span class="sig-paren">)</span><a class="headerlink" href="#training.trainer.rep_trainer.Representative" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Representative sample of the algorithm</p>
+</dd></dl>
+
+<dl class="class">
+<dt id="training.trainer.rep_trainer.RepresentativesTrainer">
+<em class="property">class </em><code class="descclassname">training.trainer.rep_trainer.</code><code class="descname">RepresentativesTrainer</code><span class="sig-paren">(</span><em>config: training.config.general_config.GeneralConfig</em>, <em>model: libs.caffe_tensorflow.network.Network</em>, <em>pipeline: etl.data.data.Data</em>, <em>tensor_x: tensorflow.python.framework.ops.Tensor</em>, <em>tensor_y: tensorflow.python.framework.ops.Tensor</em>, <em>tester: experiments.tester.Tester = None</em>, <em>checkpoint: str = None</em><span class="sig-paren">)</span><a class="headerlink" href="#training.trainer.rep_trainer.RepresentativesTrainer" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#training.trainer.trainer.Trainer" title="training.trainer.trainer.Trainer"><code class="xref py py-class docutils literal notranslate"><span class="pre">training.trainer.trainer.Trainer</span></code></a></p>
+<p>Trains with the algorithm that uses RMSProp and representatives selection for incremental learning</p>
+</dd></dl>
+
+</div>
+<div class="section" id="module-training.trainer.rms_trainer">
+<span id="training-trainer-rms-trainer-module"></span><h2>training.trainer.rms_trainer module<a class="headerlink" href="#module-training.trainer.rms_trainer" title="Permalink to this headline">¶</a></h2>
+<p>Trainer with RMSProp Optimizer</p>
+<dl class="class">
+<dt id="training.trainer.rms_trainer.RMSPropTrainer">
+<em class="property">class </em><code class="descclassname">training.trainer.rms_trainer.</code><code class="descname">RMSPropTrainer</code><span class="sig-paren">(</span><em>config: training.config.general_config.GeneralConfig</em>, <em>model: libs.caffe_tensorflow.network.Network</em>, <em>pipeline: etl.data.data.Data</em>, <em>tensor_x: tensorflow.python.framework.ops.Tensor</em>, <em>tensor_y: tensorflow.python.framework.ops.Tensor</em>, <em>tester: experiments.tester.Tester = None</em>, <em>checkpoint: str = None</em><span class="sig-paren">)</span><a class="headerlink" href="#training.trainer.rms_trainer.RMSPropTrainer" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#training.trainer.trainer.Trainer" title="training.trainer.trainer.Trainer"><code class="xref py py-class docutils literal notranslate"><span class="pre">training.trainer.trainer.Trainer</span></code></a></p>
+<p>Trainer with RMSProp Optimizer</p>
+</dd></dl>
+
+</div>
+<div class="section" id="module-training.trainer.trainer">
+<span id="training-trainer-trainer-module"></span><h2>training.trainer.trainer module<a class="headerlink" href="#module-training.trainer.trainer" title="Permalink to this headline">¶</a></h2>
+<p>Module for training a neural network.
+Features:</p>
+<blockquote>
+<div><ol class="arabic simple">
+<li><p>It’s independent of the dataset, or model used for training</p></li>
+<li><p>Does all the needed preparations for the training (e.g. creating a session)</p></li>
+</ol>
+</div></blockquote>
+<dl class="class">
+<dt id="training.trainer.trainer.Trainer">
+<em class="property">class </em><code class="descclassname">training.trainer.trainer.</code><code class="descname">Trainer</code><span class="sig-paren">(</span><em>config: training.config.general_config.GeneralConfig</em>, <em>model: libs.caffe_tensorflow.network.Network</em>, <em>pipeline: etl.data.data.Data</em>, <em>tensor_x: tensorflow.python.framework.ops.Tensor</em>, <em>tensor_y: tensorflow.python.framework.ops.Tensor</em>, <em>tester: experiments.tester.Tester = None</em>, <em>checkpoint: str = None</em><span class="sig-paren">)</span><a class="headerlink" href="#training.trainer.trainer.Trainer" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">abc.ABC</span></code></p>
+<p>Has the purpose of training a generic net, with a generic configuration. It serves as a base for custom trainers</p>
+<dl class="method">
+<dt id="training.trainer.trainer.Trainer.train">
+<code class="descname">train</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#training.trainer.trainer.Trainer.train" title="Permalink to this definition">¶</a></dt>
+<dd><p>Trains a neural network with the appropriate configuration. It also does the preparations needed for that
+training. It loads a checkpoint if a valid checkpoint path has been given.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="training.trainer.trainer.Trainer.train_megabatch">
+<code class="descname">train_megabatch</code><span class="sig-paren">(</span><em>megabatch: int</em>, <em>iteration: int</em>, <em>total_iteration: int</em>, <em>trained_time: float</em>, <em>ttime: float</em>, <em>config: training.config.general_config.GeneralConfig</em>, <em>writer: tensorflow.python.summary.writer.writer.FileWriter</em>, <em>data_x: tensorflow.python.framework.ops.Tensor</em>, <em>data_y: tensorflow.python.framework.ops.Tensor</em><span class="sig-paren">)</span><a class="headerlink" href="#training.trainer.trainer.Trainer.train_megabatch" title="Permalink to this definition">¶</a></dt>
+<dd><p>Trains a neural network over an increment of data, with the given configuration and model, over the data that is
+provided. It also saves summaries for TensorBoard and creates checkpoints according to the given configuration.
+Note: if both maximum number of epochs and maximum time are set, then the training finishes when any of the
+stop criteria is met</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>megabatch</strong> – the number of the mega-batch</p></li>
+<li><p><strong>iteration</strong> – the current iteration number over the training data. It should be zero if no checkpoint has
+been loaded or if the mega-batch at which the restored checkpoint is differs from the current mega-batch</p></li>
+<li><p><strong>total_iteration</strong> – the current iteration number over the training data, counting from the start of the
+training (that is, from the first batch of mega-batch 0)</p></li>
+<li><p><strong>trained_time</strong> – number of seconds that the network has been trained (counting from the start of the
+mega-batch). It should be zero if no checkpoint has been loaded or if the current mega-batch is different
+than the one that was loaded from a checkpoint</p></li>
+<li><p><strong>ttime</strong> – number of seconds that the model should be trained. If None, then time restrictions are not used</p></li>
+<li><p><strong>config</strong> – the configuration for the whole training</p></li>
+<li><p><strong>writer</strong> – a FileWriter properly configured</p></li>
+<li><p><strong>data_x</strong> – the tensor associated with the training data</p></li>
+<li><p><strong>data_y</strong> – the tensor that has the corresponding labels of the training data</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>the current iteration</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>int</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-training.trainer">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-training.trainer" title="Permalink to this headline">¶</a></h2>
+</div>
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="index.html">DILF</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="modules.html">DILF</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="errors.html">errors module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="etl.html">etl package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="experiments.html">experiments package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="libs.html">libs package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="networks.html">networks package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="program_menu.html">program_menu module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="program_shell.html">program_shell module</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="training.html">training package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="utils.html">utils package</a></li>
+</ul>
+</li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="index.html">Documentation overview</a><ul>
+  <li><a href="modules.html">DILF</a><ul>
+  <li><a href="training.html">training package</a><ul>
+      <li>Previous: <a href="training.support.html" title="previous chapter">training.support package</a></li>
+      <li>Next: <a href="utils.html" title="next chapter">utils package</a></li>
+  </ul></li>
+  </ul></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2019, Camilo Narvaez, David Munoz, Carlos Cobos.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 2.0.1</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="_sources/training.trainer.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

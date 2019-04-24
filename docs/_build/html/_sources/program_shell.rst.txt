@@ -1,0 +1,7 @@
+program\_shell module
+=====================
+
+.. automodule:: program_shell
+    :members:
+    :undoc-members:
+    :show-inheritance:

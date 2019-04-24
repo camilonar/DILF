@@ -1,0 +1,285 @@
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <title>DILF &#8212; DILF 1.0.0 documentation</title>
+    <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="_static/language_data.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="errors module" href="errors.html" />
+    <link rel="prev" title="Welcome to DILF’s documentation!" href="index.html" />
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="dilf">
+<h1>DILF<a class="headerlink" href="#dilf" title="Permalink to this headline">¶</a></h1>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="errors.html">errors module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="etl.html">etl package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="etl.html#subpackages">Subpackages</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="etl.data.html">etl.data package</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="etl.data.html#submodules">Submodules</a></li>
+<li class="toctree-l4"><a class="reference internal" href="etl.data.html#module-etl.data.caltech_256_data">etl.data.caltech_256_data module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="etl.data.html#module-etl.data.caltech_data">etl.data.caltech_data module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="etl.data.html#module-etl.data.cifar100_data">etl.data.cifar100_data module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="etl.data.html#module-etl.data.cifar_data">etl.data.cifar_data module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="etl.data.html#module-etl.data.data">etl.data.data module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="etl.data.html#module-etl.data.fashion_mnist_data">etl.data.fashion_mnist_data module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="etl.data.html#module-etl.data.imagenet_data">etl.data.imagenet_data module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="etl.data.html#module-etl.data.mnist_data">etl.data.mnist_data module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="etl.data.html#module-etl.data">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="etl.reader.html">etl.reader package</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="etl.reader.html#submodules">Submodules</a></li>
+<li class="toctree-l4"><a class="reference internal" href="etl.reader.html#module-etl.reader.directory_reader">etl.reader.directory_reader module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="etl.reader.html#module-etl.reader.reader">etl.reader.reader module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="etl.reader.html#module-etl.reader.tfrecords_reader">etl.reader.tfrecords_reader module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="etl.reader.html#module-etl.reader">Module contents</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="etl.html#module-etl">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="experiments.html">experiments package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="experiments.html#subpackages">Subpackages</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="experiments.caltech101.html">experiments.caltech101 package</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="experiments.caltech101.html#submodules">Submodules</a></li>
+<li class="toctree-l4"><a class="reference internal" href="experiments.caltech101.html#module-experiments.caltech101.caltech_exp">experiments.caltech101.caltech_exp module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="experiments.caltech101.html#module-experiments.caltech101.caltech_exp_rep">experiments.caltech101.caltech_exp_rep module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="experiments.caltech101.html#module-experiments.caltech101.caltech_exp_rms">experiments.caltech101.caltech_exp_rms module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="experiments.caltech101.html#module-experiments.caltech101">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="experiments.caltech256.html">experiments.caltech256 package</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="experiments.caltech256.html#submodules">Submodules</a></li>
+<li class="toctree-l4"><a class="reference internal" href="experiments.caltech256.html#module-experiments.caltech256.caltech_256_exp">experiments.caltech256.caltech_256_exp module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="experiments.caltech256.html#module-experiments.caltech256.caltech_256_exp_rms">experiments.caltech256.caltech_256_exp_rms module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="experiments.caltech256.html#module-experiments.caltech256">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="experiments.cifar10.html">experiments.cifar10 package</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="experiments.cifar10.html#submodules">Submodules</a></li>
+<li class="toctree-l4"><a class="reference internal" href="experiments.cifar10.html#module-experiments.cifar10.cifar_exp">experiments.cifar10.cifar_exp module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="experiments.cifar10.html#module-experiments.cifar10.cifar_exp_rep">experiments.cifar10.cifar_exp_rep module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="experiments.cifar10.html#module-experiments.cifar10.cifar_exp_rms">experiments.cifar10.cifar_exp_rms module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="experiments.cifar10.html#module-experiments.cifar10">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="experiments.cifar100.html">experiments.cifar100 package</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="experiments.cifar100.html#submodules">Submodules</a></li>
+<li class="toctree-l4"><a class="reference internal" href="experiments.cifar100.html#module-experiments.cifar100.cifar100_exp">experiments.cifar100.cifar100_exp module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="experiments.cifar100.html#module-experiments.cifar100.cifar100_exp_rms">experiments.cifar100.cifar100_exp_rms module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="experiments.cifar100.html#module-experiments.cifar100">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="experiments.fashion_mnist.html">experiments.fashion_mnist package</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="experiments.fashion_mnist.html#submodules">Submodules</a></li>
+<li class="toctree-l4"><a class="reference internal" href="experiments.fashion_mnist.html#module-experiments.fashion_mnist.fashion_mnist_exp">experiments.fashion_mnist.fashion_mnist_exp module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="experiments.fashion_mnist.html#module-experiments.fashion_mnist.fashion_mnist_exp_rep">experiments.fashion_mnist.fashion_mnist_exp_rep module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="experiments.fashion_mnist.html#module-experiments.fashion_mnist.fashion_mnist_exp_rms">experiments.fashion_mnist.fashion_mnist_exp_rms module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="experiments.fashion_mnist.html#module-experiments.fashion_mnist">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="experiments.imagenet.html">experiments.imagenet package</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="experiments.imagenet.html#submodules">Submodules</a></li>
+<li class="toctree-l4"><a class="reference internal" href="experiments.imagenet.html#module-experiments.imagenet.imagenet_exp">experiments.imagenet.imagenet_exp module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="experiments.imagenet.html#module-experiments.imagenet.imagenet_exp_rep">experiments.imagenet.imagenet_exp_rep module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="experiments.imagenet.html#module-experiments.imagenet.imagenet_exp_rms">experiments.imagenet.imagenet_exp_rms module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="experiments.imagenet.html#module-experiments.imagenet">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="experiments.mnist.html">experiments.mnist package</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="experiments.mnist.html#submodules">Submodules</a></li>
+<li class="toctree-l4"><a class="reference internal" href="experiments.mnist.html#module-experiments.mnist.mnist_exp">experiments.mnist.mnist_exp module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="experiments.mnist.html#module-experiments.mnist.mnist_exp_rep">experiments.mnist.mnist_exp_rep module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="experiments.mnist.html#module-experiments.mnist.mnist_exp_rms">experiments.mnist.mnist_exp_rms module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="experiments.mnist.html#module-experiments.mnist">Module contents</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="experiments.html#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="experiments.html#module-experiments.experiment">experiments.experiment module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="experiments.html#module-experiments.experiments">experiments.experiments module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="experiments.html#module-experiments.tester">experiments.tester module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="experiments.html#module-experiments">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="libs.html">libs package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="libs.html#subpackages">Subpackages</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="libs.caffe_tensorflow.html">libs.caffe_tensorflow package</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="libs.caffe_tensorflow.html#submodules">Submodules</a></li>
+<li class="toctree-l4"><a class="reference internal" href="libs.caffe_tensorflow.html#module-libs.caffe_tensorflow.network">libs.caffe_tensorflow.network module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="libs.caffe_tensorflow.html#module-libs.caffe_tensorflow">Module contents</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="libs.html#module-libs">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="networks.html">networks package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="networks.html#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="networks.html#module-networks.alex_net">networks.alex_net module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="networks.html#module-networks.caffe_net">networks.caffe_net module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="networks.html#module-networks.cifar_tfnet">networks.cifar_tfnet module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="networks.html#module-networks.dense_net">networks.dense_net module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="networks.html#module-networks.fashion_mnist_net">networks.fashion_mnist_net module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="networks.html#module-networks.le_net">networks.le_net module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="networks.html#module-networks.nin">networks.nin module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="networks.html#module-networks.simple_net">networks.simple_net module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="networks.html#module-networks.vgg_net">networks.vgg_net module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="networks.html#module-networks">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="program_menu.html">program_menu module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="program_shell.html">program_shell module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="training.html">training package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="training.html#subpackages">Subpackages</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="training.config.html">training.config package</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="training.config.html#submodules">Submodules</a></li>
+<li class="toctree-l4"><a class="reference internal" href="training.config.html#module-training.config.general_config">training.config.general_config module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="training.config.html#module-training.config.megabatch_config">training.config.megabatch_config module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="training.config.html#module-training.config">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="training.support.html">training.support package</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="training.support.html#submodules">Submodules</a></li>
+<li class="toctree-l4"><a class="reference internal" href="training.support.html#module-training.support.saver">training.support.saver module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="training.support.html#module-training.support">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="training.trainer.html">training.trainer package</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="training.trainer.html#submodules">Submodules</a></li>
+<li class="toctree-l4"><a class="reference internal" href="training.trainer.html#module-training.trainer.rep_trainer">training.trainer.rep_trainer module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="training.trainer.html#module-training.trainer.rms_trainer">training.trainer.rms_trainer module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="training.trainer.html#module-training.trainer.trainer">training.trainer.trainer module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="training.trainer.html#module-training.trainer">Module contents</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="training.html#module-training">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="utils.html">utils package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="utils.html#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="utils.html#module-utils.constants">utils.constants module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="utils.html#module-utils.default_paths">utils.default_paths module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="utils.html#module-utils.dir_utils">utils.dir_utils module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="utils.html#module-utils.exp_helper">utils.exp_helper module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="utils.html#module-utils.read_tensorboard">utils.read_tensorboard module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="utils.html#module-utils.train_modes">utils.train_modes module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="utils.html#module-utils">Module contents</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="index.html">DILF</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">DILF</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="errors.html">errors module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="etl.html">etl package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="experiments.html">experiments package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="libs.html">libs package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="networks.html">networks package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="program_menu.html">program_menu module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="program_shell.html">program_shell module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="training.html">training package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="utils.html">utils package</a></li>
+</ul>
+</li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="index.html">Documentation overview</a><ul>
+      <li>Previous: <a href="index.html" title="previous chapter">Welcome to DILF’s documentation!</a></li>
+      <li>Next: <a href="errors.html" title="next chapter">errors module</a></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2019, Camilo Narvaez, David Munoz, Carlos Cobos.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 2.0.1</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="_sources/modules.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

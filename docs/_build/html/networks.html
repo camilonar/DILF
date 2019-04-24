@@ -1,0 +1,450 @@
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <title>networks package &#8212; DILF 1.0.0 documentation</title>
+    <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="_static/language_data.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="program_menu module" href="program_menu.html" />
+    <link rel="prev" title="libs.caffe_tensorflow package" href="libs.caffe_tensorflow.html" />
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="networks-package">
+<h1>networks package<a class="headerlink" href="#networks-package" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="module-networks.alex_net">
+<span id="networks-alex-net-module"></span><h2>networks.alex_net module<a class="headerlink" href="#module-networks.alex_net" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="networks.alex_net.AlexNet">
+<em class="property">class </em><code class="descclassname">networks.alex_net.</code><code class="descname">AlexNet</code><span class="sig-paren">(</span><em>inputs</em>, <em>trainable=True</em><span class="sig-paren">)</span><a class="headerlink" href="#networks.alex_net.AlexNet" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="libs.caffe_tensorflow.html#libs.caffe_tensorflow.network.Network" title="libs.caffe_tensorflow.network.Network"><code class="xref py py-class docutils literal notranslate"><span class="pre">libs.caffe_tensorflow.network.Network</span></code></a></p>
+<dl class="attribute">
+<dt id="networks.alex_net.AlexNet.data_path">
+<code class="descname">data_path</code><a class="headerlink" href="#networks.alex_net.AlexNet.data_path" title="Permalink to this definition">¶</a></dt>
+<dd><p>Contains the path to the weights and biases of the network that is going to be loaded for transfer learning</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>a string with the path where the weights of the network are stored, if transfer learning is used. The
+default implementation returns None.</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="networks.alex_net.AlexNet.has_transfer_learning">
+<code class="descname">has_transfer_learning</code><a class="headerlink" href="#networks.alex_net.AlexNet.has_transfer_learning" title="Permalink to this definition">¶</a></dt>
+<dd><p>Indicates whether or not, transfer learning is going to be used with the model.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>True if the model weights should be loaded from a network previously trained in another dataset. By
+default it returns False.</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>bool</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="networks.alex_net.AlexNet.setup">
+<code class="descname">setup</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#networks.alex_net.AlexNet.setup" title="Permalink to this definition">¶</a></dt>
+<dd><dl>
+<dt>Creates a Neural Net with a AlexNet architecture. The input data must have been previously set in</dt><dd><p>the constructor of the object as ‘data’.
+E.g.:</p>
+<blockquote>
+<div><p>net = AlexNet({‘data’: input_tensor})</p>
+</div></blockquote>
+<dl class="simple">
+<dt>Architecture taken from:</dt><dd><p><a class="reference external" href="http://vision.stanford.edu/teaching/cs231b_spring1415/slides/alexnet_tugce_kyunghee.pdf">http://vision.stanford.edu/teaching/cs231b_spring1415/slides/alexnet_tugce_kyunghee.pdf</a></p>
+</dd>
+</dl>
+</dd>
+</dl>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="networks.alex_net.AlexNet.trainable_layers">
+<code class="descname">trainable_layers</code><a class="headerlink" href="#networks.alex_net.AlexNet.trainable_layers" title="Permalink to this definition">¶</a></dt>
+<dd><p>Contains a list with the names of the layers that are going to be trained. This is useful for transfer learning</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>a list. The default implementation returns an empty list</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>list</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-networks.caffe_net">
+<span id="networks-caffe-net-module"></span><h2>networks.caffe_net module<a class="headerlink" href="#module-networks.caffe_net" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="networks.caffe_net.CaffeNet">
+<em class="property">class </em><code class="descclassname">networks.caffe_net.</code><code class="descname">CaffeNet</code><span class="sig-paren">(</span><em>inputs</em>, <em>trainable=True</em><span class="sig-paren">)</span><a class="headerlink" href="#networks.caffe_net.CaffeNet" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="libs.caffe_tensorflow.html#libs.caffe_tensorflow.network.Network" title="libs.caffe_tensorflow.network.Network"><code class="xref py py-class docutils literal notranslate"><span class="pre">libs.caffe_tensorflow.network.Network</span></code></a></p>
+<dl class="method">
+<dt id="networks.caffe_net.CaffeNet.setup">
+<code class="descname">setup</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#networks.caffe_net.CaffeNet.setup" title="Permalink to this definition">¶</a></dt>
+<dd><blockquote>
+<div><p>Creates a Neural Net with a simplified CaffeNet architecture. The input data must have been previously set in
+the constructor of the object as ‘data’.
+E.g.:</p>
+<blockquote>
+<div><p>net = CaffeNet({‘data’: input_tensor})</p>
+</div></blockquote>
+<dl class="simple">
+<dt>This code was taken and adapted from:</dt><dd><p><a class="reference external" href="https://github.com/ethereon/caffe-tensorflow">https://github.com/ethereon/caffe-tensorflow</a></p>
+</dd>
+</dl>
+</div></blockquote>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-networks.cifar_tfnet">
+<span id="networks-cifar-tfnet-module"></span><h2>networks.cifar_tfnet module<a class="headerlink" href="#module-networks.cifar_tfnet" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="networks.cifar_tfnet.CifarTFNet">
+<em class="property">class </em><code class="descclassname">networks.cifar_tfnet.</code><code class="descname">CifarTFNet</code><span class="sig-paren">(</span><em>inputs</em>, <em>trainable=True</em><span class="sig-paren">)</span><a class="headerlink" href="#networks.cifar_tfnet.CifarTFNet" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="libs.caffe_tensorflow.html#libs.caffe_tensorflow.network.Network" title="libs.caffe_tensorflow.network.Network"><code class="xref py py-class docutils literal notranslate"><span class="pre">libs.caffe_tensorflow.network.Network</span></code></a></p>
+<dl class="method">
+<dt id="networks.cifar_tfnet.CifarTFNet.setup">
+<code class="descname">setup</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#networks.cifar_tfnet.CifarTFNet.setup" title="Permalink to this definition">¶</a></dt>
+<dd><blockquote>
+<div><dl class="simple">
+<dt>Architecture taken from:</dt><dd><p><a class="reference external" href="https://www.tensorflow.org/tutorials/images/deep_cnn#model_training">https://www.tensorflow.org/tutorials/images/deep_cnn#model_training</a></p>
+</dd>
+</dl>
+</div></blockquote>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-networks.dense_net">
+<span id="networks-dense-net-module"></span><h2>networks.dense_net module<a class="headerlink" href="#module-networks.dense_net" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="networks.dense_net.DenseNet">
+<em class="property">class </em><code class="descclassname">networks.dense_net.</code><code class="descname">DenseNet</code><span class="sig-paren">(</span><em>inputs</em>, <em>trainable=True</em><span class="sig-paren">)</span><a class="headerlink" href="#networks.dense_net.DenseNet" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="libs.caffe_tensorflow.html#libs.caffe_tensorflow.network.Network" title="libs.caffe_tensorflow.network.Network"><code class="xref py py-class docutils literal notranslate"><span class="pre">libs.caffe_tensorflow.network.Network</span></code></a></p>
+<dl class="method">
+<dt id="networks.dense_net.DenseNet.setup">
+<code class="descname">setup</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#networks.dense_net.DenseNet.setup" title="Permalink to this definition">¶</a></dt>
+<dd><p>Creates a DenseNet for 256x256 images</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-networks.fashion_mnist_net">
+<span id="networks-fashion-mnist-net-module"></span><h2>networks.fashion_mnist_net module<a class="headerlink" href="#module-networks.fashion_mnist_net" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="networks.fashion_mnist_net.FashionMnistNet">
+<em class="property">class </em><code class="descclassname">networks.fashion_mnist_net.</code><code class="descname">FashionMnistNet</code><span class="sig-paren">(</span><em>inputs</em>, <em>trainable=True</em><span class="sig-paren">)</span><a class="headerlink" href="#networks.fashion_mnist_net.FashionMnistNet" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="libs.caffe_tensorflow.html#libs.caffe_tensorflow.network.Network" title="libs.caffe_tensorflow.network.Network"><code class="xref py py-class docutils literal notranslate"><span class="pre">libs.caffe_tensorflow.network.Network</span></code></a></p>
+<dl class="method">
+<dt id="networks.fashion_mnist_net.FashionMnistNet.setup">
+<code class="descname">setup</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#networks.fashion_mnist_net.FashionMnistNet.setup" title="Permalink to this definition">¶</a></dt>
+<dd><p>Network to be used with Fashion MNIST dataset</p>
+<p>This code was taken and adapted from:
+<a class="reference external" href="https://medium.com/tensorflow/hello-deep-learning-fashion-mnist-with-keras-50fcff8cd74a">https://medium.com/tensorflow/hello-deep-learning-fashion-mnist-with-keras-50fcff8cd74a</a></p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-networks.le_net">
+<span id="networks-le-net-module"></span><h2>networks.le_net module<a class="headerlink" href="#module-networks.le_net" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="networks.le_net.LeNet">
+<em class="property">class </em><code class="descclassname">networks.le_net.</code><code class="descname">LeNet</code><span class="sig-paren">(</span><em>inputs</em>, <em>trainable=True</em><span class="sig-paren">)</span><a class="headerlink" href="#networks.le_net.LeNet" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="libs.caffe_tensorflow.html#libs.caffe_tensorflow.network.Network" title="libs.caffe_tensorflow.network.Network"><code class="xref py py-class docutils literal notranslate"><span class="pre">libs.caffe_tensorflow.network.Network</span></code></a></p>
+<dl class="method">
+<dt id="networks.le_net.LeNet.setup">
+<code class="descname">setup</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#networks.le_net.LeNet.setup" title="Permalink to this definition">¶</a></dt>
+<dd><p>Creates a Neural Net with LeNet-5 architecture. The input shape of the tensor must follow the shape
+[None,32,32,C], where C is the number of color channels of the images, and C&gt;=1. If the images are grayscale
+then C=1. This Tensor must have been previously set in the constructor of the object as ‘data’
+E.g.:</p>
+<blockquote>
+<div><p>net = LeNet({‘data’: input_tensor})</p>
+</div></blockquote>
+<p>This code was taken and adapted from:
+<a class="reference external" href="https://github.com/sujaybabruwad/LeNet-in-Tensorflow">https://github.com/sujaybabruwad/LeNet-in-Tensorflow</a></p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-networks.nin">
+<span id="networks-nin-module"></span><h2>networks.nin module<a class="headerlink" href="#module-networks.nin" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="networks.nin.NiN">
+<em class="property">class </em><code class="descclassname">networks.nin.</code><code class="descname">NiN</code><span class="sig-paren">(</span><em>inputs</em>, <em>trainable=True</em><span class="sig-paren">)</span><a class="headerlink" href="#networks.nin.NiN" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="libs.caffe_tensorflow.html#libs.caffe_tensorflow.network.Network" title="libs.caffe_tensorflow.network.Network"><code class="xref py py-class docutils literal notranslate"><span class="pre">libs.caffe_tensorflow.network.Network</span></code></a></p>
+<dl class="method">
+<dt id="networks.nin.NiN.get_output">
+<code class="descname">get_output</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#networks.nin.NiN.get_output" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the current network output.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="networks.nin.NiN.setup">
+<code class="descname">setup</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#networks.nin.NiN.setup" title="Permalink to this definition">¶</a></dt>
+<dd><p>Creates a Neural Net with NiN architecture. The input data must have been previously set in
+the constructor of the object as ‘data’.
+E.g.:</p>
+<blockquote>
+<div><p>net = NiN({‘data’: input_tensor})</p>
+</div></blockquote>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-networks.simple_net">
+<span id="networks-simple-net-module"></span><h2>networks.simple_net module<a class="headerlink" href="#module-networks.simple_net" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="networks.simple_net.SimpleNet">
+<em class="property">class </em><code class="descclassname">networks.simple_net.</code><code class="descname">SimpleNet</code><span class="sig-paren">(</span><em>inputs</em>, <em>trainable=True</em><span class="sig-paren">)</span><a class="headerlink" href="#networks.simple_net.SimpleNet" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="libs.caffe_tensorflow.html#libs.caffe_tensorflow.network.Network" title="libs.caffe_tensorflow.network.Network"><code class="xref py py-class docutils literal notranslate"><span class="pre">libs.caffe_tensorflow.network.Network</span></code></a></p>
+<dl class="method">
+<dt id="networks.simple_net.SimpleNet.setup">
+<code class="descname">setup</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#networks.simple_net.SimpleNet.setup" title="Permalink to this definition">¶</a></dt>
+<dd><p>Creates a SimpleNet</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-networks.vgg_net">
+<span id="networks-vgg-net-module"></span><h2>networks.vgg_net module<a class="headerlink" href="#module-networks.vgg_net" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="networks.vgg_net.VGGNet">
+<em class="property">class </em><code class="descclassname">networks.vgg_net.</code><code class="descname">VGGNet</code><span class="sig-paren">(</span><em>inputs</em>, <em>trainable=True</em><span class="sig-paren">)</span><a class="headerlink" href="#networks.vgg_net.VGGNet" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="libs.caffe_tensorflow.html#libs.caffe_tensorflow.network.Network" title="libs.caffe_tensorflow.network.Network"><code class="xref py py-class docutils literal notranslate"><span class="pre">libs.caffe_tensorflow.network.Network</span></code></a></p>
+<dl class="attribute">
+<dt id="networks.vgg_net.VGGNet.data_path">
+<code class="descname">data_path</code><a class="headerlink" href="#networks.vgg_net.VGGNet.data_path" title="Permalink to this definition">¶</a></dt>
+<dd><p>Contains the path to the weights and biases of the network that is going to be loaded for transfer learning</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>a string with the path where the weights of the network are stored, if transfer learning is used. The
+default implementation returns None.</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="networks.vgg_net.VGGNet.has_transfer_learning">
+<code class="descname">has_transfer_learning</code><a class="headerlink" href="#networks.vgg_net.VGGNet.has_transfer_learning" title="Permalink to this definition">¶</a></dt>
+<dd><p>Indicates whether or not, transfer learning is going to be used with the model.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>True if the model weights should be loaded from a network previously trained in another dataset. By
+default it returns False.</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>bool</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="networks.vgg_net.VGGNet.setup">
+<code class="descname">setup</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#networks.vgg_net.VGGNet.setup" title="Permalink to this definition">¶</a></dt>
+<dd><dl>
+<dt>Creates a Neural Net with a VGG16 architecture. The input data must have been previously set in</dt><dd><p>the constructor of the object as ‘data’.
+E.g.:</p>
+<blockquote>
+<div><p>net = VGGNet({‘data’: input_tensor})</p>
+</div></blockquote>
+</dd>
+</dl>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="networks.vgg_net.VGGNet.trainable_layers">
+<code class="descname">trainable_layers</code><a class="headerlink" href="#networks.vgg_net.VGGNet.trainable_layers" title="Permalink to this definition">¶</a></dt>
+<dd><p>Contains a list with the names of the layers that are going to be trained. This is useful for transfer learning</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>a list. The default implementation returns an empty list</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>list</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-networks">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-networks" title="Permalink to this headline">¶</a></h2>
+</div>
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="index.html">DILF</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="modules.html">DILF</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="errors.html">errors module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="etl.html">etl package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="experiments.html">experiments package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="libs.html">libs package</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">networks package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="program_menu.html">program_menu module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="program_shell.html">program_shell module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="training.html">training package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="utils.html">utils package</a></li>
+</ul>
+</li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="index.html">Documentation overview</a><ul>
+  <li><a href="modules.html">DILF</a><ul>
+      <li>Previous: <a href="libs.caffe_tensorflow.html" title="previous chapter">libs.caffe_tensorflow package</a></li>
+      <li>Next: <a href="program_menu.html" title="next chapter">program_menu module</a></li>
+  </ul></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2019, Camilo Narvaez, David Munoz, Carlos Cobos.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 2.0.1</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="_sources/networks.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

@@ -1,0 +1,30 @@
+training.config package
+=======================
+
+Submodules
+----------
+
+training.config.general\_config module
+--------------------------------------
+
+.. automodule:: training.config.general_config
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+training.config.megabatch\_config module
+----------------------------------------
+
+.. automodule:: training.config.megabatch_config
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+
+Module contents
+---------------
+
+.. automodule:: training.config
+    :members:
+    :undoc-members:
+    :show-inheritance:

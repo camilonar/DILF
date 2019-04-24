@@ -1,0 +1,78 @@
+etl.data package
+================
+
+Submodules
+----------
+
+etl.data.caltech\_256\_data module
+----------------------------------
+
+.. automodule:: etl.data.caltech_256_data
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+etl.data.caltech\_data module
+-----------------------------
+
+.. automodule:: etl.data.caltech_data
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+etl.data.cifar100\_data module
+------------------------------
+
+.. automodule:: etl.data.cifar100_data
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+etl.data.cifar\_data module
+---------------------------
+
+.. automodule:: etl.data.cifar_data
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+etl.data.data module
+--------------------
+
+.. automodule:: etl.data.data
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+etl.data.fashion\_mnist\_data module
+------------------------------------
+
+.. automodule:: etl.data.fashion_mnist_data
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+etl.data.imagenet\_data module
+------------------------------
+
+.. automodule:: etl.data.imagenet_data
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+etl.data.mnist\_data module
+---------------------------
+
+.. automodule:: etl.data.mnist_data
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+
+Module contents
+---------------
+
+.. automodule:: etl.data
+    :members:
+    :undoc-members:
+    :show-inheritance:

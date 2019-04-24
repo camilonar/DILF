@@ -1,0 +1,7 @@
+program\_menu module
+====================
+
+.. automodule:: program_menu
+    :members:
+    :undoc-members:
+    :show-inheritance:

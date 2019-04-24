@@ -1,0 +1,38 @@
+training.trainer package
+========================
+
+Submodules
+----------
+
+training.trainer.rep\_trainer module
+------------------------------------
+
+.. automodule:: training.trainer.rep_trainer
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+training.trainer.rms\_trainer module
+------------------------------------
+
+.. automodule:: training.trainer.rms_trainer
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+training.trainer.trainer module
+-------------------------------
+
+.. automodule:: training.trainer.trainer
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+
+Module contents
+---------------
+
+.. automodule:: training.trainer
+    :members:
+    :undoc-members:
+    :show-inheritance:

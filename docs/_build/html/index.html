@@ -1,0 +1,282 @@
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <title>Welcome to DILF’s documentation! &#8212; DILF 1.0.0 documentation</title>
+    <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="_static/language_data.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="DILF" href="modules.html" />
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="welcome-to-dilf-s-documentation">
+<h1>Welcome to DILF’s documentation!<a class="headerlink" href="#welcome-to-dilf-s-documentation" title="Permalink to this headline">¶</a></h1>
+<div class="toctree-wrapper compound">
+<p class="caption"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="modules.html">DILF</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="errors.html">errors module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="etl.html">etl package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="experiments.html">experiments package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="libs.html">libs package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="networks.html">networks package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="program_menu.html">program_menu module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="program_shell.html">program_shell module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="training.html">training package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="utils.html">utils package</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+<div class="section" id="indices-and-tables">
+<h1>Indices and tables<a class="headerlink" href="#indices-and-tables" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p><a class="reference internal" href="genindex.html"><span class="std std-ref">Index</span></a></p></li>
+<li><p><a class="reference internal" href="py-modindex.html"><span class="std std-ref">Module Index</span></a></p></li>
+<li><p><a class="reference internal" href="search.html"><span class="std std-ref">Search Page</span></a></p></li>
+</ul>
+</div>
+<div class="section" id="dilf-deep-incremental-learning-framework">
+<h1>DILF: Deep Incremental Learning Framework<a class="headerlink" href="#dilf-deep-incremental-learning-framework" title="Permalink to this headline">¶</a></h1>
+<p>DILF is a simple framework built over TensorFlow specifically designed to facilitate the implementation and testing of Incremental Learning algorithms that make use of Neural Networks.</p>
+<p>DILF stablishes a set of modules and classes that are loosely connected and have clearly defined tasks, which facilitates the separation of concerns of each components and the development of extensible algorithms with replicable results.</p>
+<p>DILF is divided in 4 modules, each one related to a core functionality of the framework:</p>
+<ul class="simple">
+<li><p><strong>Extraction, Transformation, and Load (ETL) Module</strong>: focused in the loading of data for training and testing.</p></li>
+<li><p><strong>Network Architectures Module</strong>: for seamless integration of new Network Architectures (adapted from <a class="reference external" href="https://github.com/ethereon/caffe-tensorflow">Caffe-Tensorflow</a>).</p></li>
+<li><p><strong>Training Module</strong>: it’s responsible for the training of the Network. It’s designed so that the addition of new algorithms doesn’t affect other modules.</p></li>
+<li><p><strong>Experiments Module</strong>: creates and executes experiments over multiple Architectures, Training Algorithms and Datasets.</p></li>
+</ul>
+<p>Each module is extensible in itself, however, a number of hook methods are provided so that the addition of new algorithms, datasets and experiments is easy and requires minimum effort. The framework aims to reduce the complexity and verbosity of TensorFlow by providing a baseline structure that incorporates many of the common steps required to build an incremental training algorithm.</p>
+</div>
+<div class="section" id="getting-started">
+<h1>Getting Started<a class="headerlink" href="#getting-started" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="prerequisites">
+<h2>Prerequisites<a class="headerlink" href="#prerequisites" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Python 3.6+</p></li>
+<li><p>TensorFlow 1.9.0+</p></li>
+<li><p>Numpy 1.14.5+</p></li>
+</ul>
+</div>
+<div class="section" id="basic-installation">
+<h2>Basic Installation<a class="headerlink" href="#basic-installation" title="Permalink to this headline">¶</a></h2>
+<p>Since DILF is based in Python scripts, no installation is requred, besides installation of its dependencies. You can install the dependencies using the following command:</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>pip install -r requirements.txt
+</pre></div>
+</div>
+<p>Be mindful that this will install tensorflow-gpu version, which requires CUDA and CuDNN. You can see a guide on the requirements <a class="reference external" href="https://www.tensorflow.org/install/gpu">here</a>.
+Alternatively, you can also install Tensorflow CPU version, which doesn’t include GPU usage or acceleration.</p>
+</div>
+<div class="section" id="usage">
+<h2>Usage<a class="headerlink" href="#usage" title="Permalink to this headline">¶</a></h2>
+<p>You can execute the prepackaged Experiments by executing <code class="docutils literal notranslate"><span class="pre">program_menu.py</span></code> for a simple menu interface, or <code class="docutils literal notranslate"><span class="pre">program_shell.py</span></code> to have full control of the execution. You can execute <code class="docutils literal notranslate"><span class="pre">program_menu.py</span></code> with the following command, and then you can follow the instructions that appear in the window:</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>python program_menu.py
+</pre></div>
+</div>
+<p>An example execution of <code class="docutils literal notranslate"><span class="pre">program_shell.py</span></code> might look like this:</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>python program_shell.py --dataset<span class="o">=</span>MNIST --optimizer<span class="o">=</span>TR_BASE --checkpoint_key<span class="o">=</span><span class="m">0</span>-2000 --summaries_interval<span class="o">=</span><span class="m">600</span> --checkpoints_interval<span class="o">=</span><span class="m">2000</span> --seed<span class="o">=</span><span class="m">123</span> --train_mode<span class="o">=</span>INCREMENTAL --dataset_path<span class="o">=</span>../datasets/MNIST
+</pre></div>
+</div>
+<p>You can see the purpouse of each flag with:</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>python program_shell.py -h
+</pre></div>
+</div>
+<p>However, the most important arguments are:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">dataset</span></code>: with this, you set which dataset is going to be used. Currently supported datasets are: CIFAR (CIFAR-10), MNIST, FASHION_MNIST and CALTECH (Caltech 101)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">optimizer</span></code>: with this, you set which training algorithm is going to be used. Currently supported algorithms are: TR_BASE (RMSProp) and TR_REP (Training with Representatives)</p></li>
+</ul>
+<p>You can also use <code class="docutils literal notranslate"><span class="pre">utils/read_tensorbooard.py</span></code> to create a TensorBoard folder with the average results of multiple tests. This is useful for investigation, since the average of multiple runs is used when reporting results. To use this function, you can use a command like this:</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>python utils<span class="se">\r</span>ead_tensorboard.py --input_folder<span class="o">=</span>.<span class="se">\s</span>ummaries<span class="se">\M</span>NIST<span class="se">\T</span>R_BASE --output_folder<span class="o">=</span>results<span class="se">\f</span>older<span class="se">\l</span>ocation -m <span class="s2">&quot;accuracy&quot;</span> <span class="s2">&quot;loss&quot;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="adding-new-algorithms-with-dilf">
+<h1>Adding new algorithms with DILF<a class="headerlink" href="#adding-new-algorithms-with-dilf" title="Permalink to this headline">¶</a></h1>
+<p>Here, we present a simple tutorial to implement the algorithm RMSProp for training over MNIST using LeNet. The implementation of other algorithms and the integration of other datasets uses similar steps. However, please note that this is a basic example, and is in fact possible to change and extend any part of the framework if you desire. In order to do that, we strongly recommend reading the framework documentation.</p>
+<div class="section" id="step-1-data-pipeline">
+<h2>Step 1 - Data pipeline<a class="headerlink" href="#step-1-data-pipeline" title="Permalink to this headline">¶</a></h2>
+<p>To be able to use the input pipeline and support the new dataset, it is needed to create a new class that inherites from <strong>Data</strong>, implementing the following methods:</p>
+<ul class="simple">
+<li><p><em>_build_generic_data_tensor</em>: builds the tensors corresponding to images and labels (used for data for training and testing)</p></li>
+<li><p><em>close</em>: closes any file opened by the pipeline.</p></li>
+</ul>
+<p>Additionaly, it is important to take in account the way in which the data is stored in disk, since the framework already provides Readers for two formats: Directories in Caltech-101 style, and TFRecords. In this case, we use <strong>TFRecordsReader</strong> as Reader for the pipeline.</p>
+<p>The implementation of <em>_build_generic_data_tensor</em> allows the building of tensors for training and testing in the Data class- In this method, it is possible to apply a number of operations to the data before the training starts, such as: transformation of data, Data augmentation, random shuffle, etc. The framework also includes a helper function named <em>prepare_basic_dataset</em> that incorporates many common functions: shuffle, cache, repeat and batch. The implementation of this method is shown below:</p>
+<div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">_build_generic_data_tensor</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">reader_data</span><span class="p">,</span> <span class="n">shuffle</span><span class="p">,</span> <span class="n">augmentation</span><span class="p">,</span> <span class="n">testing</span><span class="p">,</span> <span class="n">skip_count</span><span class="o">=</span><span class="mi">0</span><span class="p">):</span>
+
+    <span class="n">filenames</span> <span class="o">=</span> <span class="n">reader_data</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="n">dataset</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">TFRecordDataset</span><span class="p">(</span><span class="n">filenames</span><span class="p">,</span> <span class="n">num_parallel_reads</span><span class="o">=</span><span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">general_config</span><span class="o">.</span><span class="n">train_configurations</span><span class="p">))</span>
+
+    <span class="c1"># Note: the parser must also be implemented</span>
+    <span class="n">dataset</span> <span class="o">=</span> <span class="n">dataset</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">parser</span><span class="p">,</span> <span class="n">num_parallel_calls</span><span class="o">=</span><span class="mi">8</span><span class="p">)</span>
+    <span class="n">dataset</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">prepare_basic_dataset</span><span class="p">(</span><span class="n">dataset</span><span class="p">,</span> <span class="n">shuffle</span><span class="o">=</span><span class="n">shuffle</span><span class="p">,</span> <span class="n">cache</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span> <span class="n">repeat</span><span class="o">=</span><span class="n">testing</span><span class="p">,</span> <span class="n">skip_count</span><span class="o">=</span><span class="n">skip_count</span><span class="p">,</span> <span class="n">shuffle_seed</span><span class="o">=</span><span class="n">const</span><span class="o">.</span><span class="n">SEED</span><span class="p">)</span>
+
+    <span class="n">iterator</span> <span class="o">=</span> <span class="n">dataset</span><span class="o">.</span><span class="n">make_initializable_iterator</span><span class="p">()</span>
+    <span class="n">images_batch</span><span class="p">,</span> <span class="n">target_batch</span> <span class="o">=</span> <span class="n">iterator</span><span class="o">.</span><span class="n">get_next</span><span class="p">()</span>
+    <span class="k">return</span> <span class="n">iterator</span><span class="p">,</span> <span class="n">images_batch</span><span class="p">,</span> <span class="n">target_batch</span>
+</pre></div>
+</div>
+<p>To use an already existing Pipeline, you only need to invoke the methods <em>build_train_data_tensor</em> and <em>build_test_data_tensor</em> to obtain the training and testing data respectively. The data is provided as tensors.</p>
+</div>
+<div class="section" id="step-2-defining-a-network-architecture">
+<h2>Step 2 - Defining a Network Architecture<a class="headerlink" href="#step-2-defining-a-network-architecture" title="Permalink to this headline">¶</a></h2>
+<p>To create a new Network Architecture, it is needed to create a new class that inherites from <strong>Network</strong> and implements the method <em>setup</em>, defining and linking each layer in the correct order. <strong>LeNet</strong> implementation is showed here:</p>
+<div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">LeNet</span><span class="p">(</span><span class="n">Network</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">setup</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+
+        <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">feed</span><span class="p">(</span><span class="s1">&#39;data&#39;</span><span class="p">)</span>
+         <span class="o">.</span><span class="n">conv</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">padding</span><span class="o">=</span><span class="s1">&#39;VALID&#39;</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s1">&#39;conv1&#39;</span><span class="p">)</span>
+         <span class="o">.</span><span class="n">max_pool</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">padding</span><span class="o">=</span><span class="s1">&#39;VALID&#39;</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s1">&#39;pool1&#39;</span><span class="p">)</span>
+         <span class="o">.</span><span class="n">conv</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">padding</span><span class="o">=</span><span class="s1">&#39;VALID&#39;</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s1">&#39;conv2&#39;</span><span class="p">)</span>
+         <span class="o">.</span><span class="n">max_pool</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">padding</span><span class="o">=</span><span class="s1">&#39;VALID&#39;</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s1">&#39;pool2&#39;</span><span class="p">)</span>
+         <span class="o">.</span><span class="n">fc</span><span class="p">(</span><span class="mi">120</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s1">&#39;fc1&#39;</span><span class="p">)</span>
+         <span class="o">.</span><span class="n">fc</span><span class="p">(</span><span class="mi">84</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s1">&#39;fc2&#39;</span><span class="p">)</span>
+         <span class="o">.</span><span class="n">fc</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="n">relu</span><span class="o">=</span><span class="bp">False</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s1">&#39;fc3&#39;</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="step-3-training-a-neural-network">
+<h2>Step 3 - Training a Neural Network<a class="headerlink" href="#step-3-training-a-neural-network" title="Permalink to this headline">¶</a></h2>
+<p>To implement the algorithm <strong>RMSProp</strong> it is necesary to create a class that inherites from <strong>Trainer</strong> and that implements the following methods:</p>
+<ul class="simple">
+<li><p><em>_create_loss</em>: where the loss operator is defined. E.g. TF’s Softmax Cross Entropy</p></li>
+<li><p><em>_create_optimizer</em>: where the optimizer is defined</p></li>
+<li><p><em>_train_batch</em>: where the samples from a batch are received and the optimizer is applied</p></li>
+</ul>
+<p>A sample implementation is shown below:</p>
+<div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">RMSPropTrainer</span><span class="p">(</span><span class="n">Trainer</span><span class="p">):</span>
+
+    <span class="k">def</span> <span class="nf">_create_loss</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">tensor_y</span><span class="p">,</span> <span class="n">net_output</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">tf</span><span class="o">.</span><span class="n">losses</span><span class="o">.</span><span class="n">softmax_cross_entropy</span><span class="p">(</span><span class="n">tensor_y</span><span class="p">,</span> <span class="n">net_output</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">_create_optimizer</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">config</span><span class="p">,</span> <span class="n">loss</span><span class="p">,</span> <span class="n">var_list</span><span class="o">=</span><span class="bp">None</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">tf</span><span class="o">.</span><span class="n">train</span><span class="o">.</span><span class="n">RMSPropOptimizer</span><span class="p">(</span><span class="n">config</span><span class="o">.</span><span class="n">learn_rate</span><span class="p">)</span><span class="o">.</span><span class="n">minimize</span><span class="p">(</span><span class="n">loss</span><span class="p">,</span> <span class="n">var_list</span><span class="o">=</span><span class="n">var_list</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">_train_batch</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">sess</span><span class="p">,</span> <span class="n">image_batch</span><span class="p">,</span> <span class="n">target_batch</span><span class="p">,</span> <span class="n">tensor_x</span><span class="p">,</span> <span class="n">tensor_y</span><span class="p">,</span> <span class="n">train_step</span><span class="p">,</span> <span class="n">loss</span><span class="p">,</span> <span class="n">increment</span><span class="p">,</span> <span class="n">iteration</span><span class="p">,</span> <span class="n">total_it</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">sess</span><span class="o">.</span><span class="n">run</span><span class="p">([</span><span class="n">train_step</span><span class="p">,</span> <span class="n">loss</span><span class="p">],</span> <span class="n">feed_dict</span><span class="o">=</span><span class="p">{</span><span class="n">tensor_x</span><span class="p">:</span> <span class="n">image_batch</span><span class="p">,</span> <span class="n">tensor_y</span><span class="p">:</span> <span class="n">target_batch</span><span class="p">})</span>
+</pre></div>
+</div>
+<p>To use this component, it is only needed to create an instance of the class passing the Configuration, Data Pipeline abd Neural Network.</p>
+</div>
+<div class="section" id="step-4-defining-the-experiment">
+<h2>Step 4 – Defining the Experiment<a class="headerlink" href="#step-4-defining-the-experiment" title="Permalink to this headline">¶</a></h2>
+<p>This module links all the components from the other modules together, and also defines the specific configuration of an experiment. The experiment must inherit from the class <strong>Experiment</strong> and implement the following methods:</p>
+<ul class="simple">
+<li><p><em>_prepare_data_pipeline</em>: creates the Pipeline that provides the data</p></li>
+<li><p><em>_prepare_neural_network</em>: creates an instance of the model to be trained</p></li>
+<li><p><em>_prepare_trainer</em>: creates the object that is tasked with the training of the model</p></li>
+<li><p><em>_prepare_config</em>: creates the specific configurations from training and testing. It is necessary to create <em>one</em> object of global configuration (<strong>GeneralConfig</strong>) and as many local configuration objects as megabatches (increments) of data has the dataset (<strong>MegabatchConfig</strong>)</p></li>
+</ul>
+<p>A lot of sample implementation can be found inside the <code class="docutils literal notranslate"><span class="pre">experiments</span></code> folder, organized by dataset. For example, MNIST has the <strong>MnistExperiment</strong> class in which the neural network and data pipeline are defined, and the <strong>MnistRMSPropExperiment</strong> class which inherites from this class and also defines the trainer and specific configuration for the experiment. This is to show that you can set your experiments in such a structure that reutilization and common configurations for multiple experiments are possible.</p>
+<p>It is important to note that if, for example, you desire to execute an experiment that doesn’t use LeNet but another Neural Network, or use Adagrad instead of RMSProp, you only need to define this in a new Experiment, without modifying the other components of the framework.</p>
+</div>
+<div class="section" id="step-5-executing-the-experiment-from-code">
+<h2>Step 5 - Executing the Experiment (from Code)<a class="headerlink" href="#step-5-executing-the-experiment-from-code" title="Permalink to this headline">¶</a></h2>
+<p>To execute the Experiment, first it’s required to have a folder with the data that is going to be used for training and testing (i.e. the Dataset). Then, an instance of the class must be created, and then the methods <em>prepare_all</em> and <em>execute_experiment</em> must be executed, like this:</p>
+<div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="n">exp</span> <span class="o">=</span> <span class="n">MnistRMSPropExperiment</span><span class="p">(</span><span class="n">train_dirs</span><span class="p">,</span> <span class="n">validation_dir</span><span class="p">,</span> <span class="n">summaries_interval</span><span class="p">,</span> <span class="n">ckp_interval</span><span class="p">,</span> <span class="n">ckp_key</span><span class="p">)</span>
+<span class="n">exp</span><span class="o">.</span><span class="n">prepare_all</span><span class="p">(</span><span class="n">train_mode</span><span class="p">)</span>
+<span class="n">exp</span><span class="o">.</span><span class="n">execute_experiment</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>While an Experiment is executed, the results of the training are stored in real time in log files that can be accesed by using TensorBoard, like this:</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>tensorboard --logdir<span class="o">=</span><span class="s2">&quot;log/folder/location&quot;</span>
+</pre></div>
+</div>
+</div>
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="#">DILF</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<p class="caption"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="modules.html">DILF</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="#">Documentation overview</a><ul>
+      <li>Next: <a href="modules.html" title="next chapter">DILF</a></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2019, Camilo Narvaez, David Munoz, Carlos Cobos.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 2.0.1</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="_sources/index.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

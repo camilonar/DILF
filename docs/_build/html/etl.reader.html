@@ -1,0 +1,309 @@
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <title>etl.reader package &#8212; DILF 1.0.0 documentation</title>
+    <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="_static/language_data.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="experiments package" href="experiments.html" />
+    <link rel="prev" title="etl.data package" href="etl.data.html" />
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="etl-reader-package">
+<h1>etl.reader package<a class="headerlink" href="#etl-reader-package" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="module-etl.reader.directory_reader">
+<span id="etl-reader-directory-reader-module"></span><h2>etl.reader.directory_reader module<a class="headerlink" href="#module-etl.reader.directory_reader" title="Permalink to this headline">¶</a></h2>
+<p>Module for the reader of directory-based datasets.
+It reads the dataset from a number of directories previously created and gives a list of filenames and labels.</p>
+<dl class="class">
+<dt id="etl.reader.directory_reader.DirectoryReader">
+<em class="property">class </em><code class="descclassname">etl.reader.directory_reader.</code><code class="descname">DirectoryReader</code><span class="sig-paren">(</span><em>train_dirs: [&lt;class 'str'&gt;], validation_dir: str, train_mode: utils.train_modes.TrainMode</em><span class="sig-paren">)</span><a class="headerlink" href="#etl.reader.directory_reader.DirectoryReader" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#etl.reader.reader.Reader" title="etl.reader.reader.Reader"><code class="xref py py-class docutils literal notranslate"><span class="pre">etl.reader.reader.Reader</span></code></a></p>
+<p>Reader for datasets stored in directories</p>
+<dl class="method">
+<dt id="etl.reader.directory_reader.DirectoryReader.load_class_names">
+<code class="descname">load_class_names</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#etl.reader.directory_reader.DirectoryReader.load_class_names" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="etl.reader.directory_reader.DirectoryReader.load_test_data">
+<code class="descname">load_test_data</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#etl.reader.directory_reader.DirectoryReader.load_test_data" title="Permalink to this definition">¶</a></dt>
+<dd><p>It loads and prepares the test data to be fed to the input pipeline</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>a tuple with the filenames of the images and labels of the test data of the current mega-batch</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="etl.reader.directory_reader.DirectoryReader.load_training_data">
+<code class="descname">load_training_data</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#etl.reader.directory_reader.DirectoryReader.load_training_data" title="Permalink to this definition">¶</a></dt>
+<dd><p>It loads and prepares the training data to be fed to the input pipeline</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>a tuple with the filenames of the images and labels of the training data of the current mega-batch</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="etl.reader.directory_reader.DirectoryReader.reload_training_data">
+<code class="descname">reload_training_data</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#etl.reader.directory_reader.DirectoryReader.reload_training_data" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reloads the training data. It should be invoked after a change in the training data.
+In case the data is being stored as a class attribute, then that class attribute should be updated within this
+method.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-etl.reader.reader">
+<span id="etl-reader-reader-module"></span><h2>etl.reader.reader module<a class="headerlink" href="#module-etl.reader.reader" title="Permalink to this headline">¶</a></h2>
+<p>This module is used to abstract the reading of the data from disk
+Features:
+1. Can load training and testing data separately
+2. Adaptable for multiple mega-batches (changing the mega-batch and reloading data)</p>
+<dl class="class">
+<dt id="etl.reader.reader.Reader">
+<em class="property">class </em><code class="descclassname">etl.reader.reader.</code><code class="descname">Reader</code><span class="sig-paren">(</span><em>train_paths: List[str], test_path: str, train_mode: utils.train_modes.TrainMode</em><span class="sig-paren">)</span><a class="headerlink" href="#etl.reader.reader.Reader" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">abc.ABC</span></code></p>
+<p>Interface for the reading of data (of a dataset) from disk.</p>
+<dl class="simple">
+<dt>This structure is based in the pipelines from:</dt><dd><p><a class="reference external" href="https://github.com/ischlag/tensorflow-input-pipelines">https://github.com/ischlag/tensorflow-input-pipelines</a></p>
+</dd>
+</dl>
+<dl class="method">
+<dt id="etl.reader.reader.Reader.change_dataset_megabatch">
+<code class="descname">change_dataset_megabatch</code><span class="sig-paren">(</span><em>index: int</em><span class="sig-paren">)</span><a class="headerlink" href="#etl.reader.reader.Reader.change_dataset_megabatch" title="Permalink to this definition">¶</a></dt>
+<dd><p>It changes the target archive of directory from which the training data is being extracted. This ONLY applies
+to the training data and NOT to the test data.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>index</strong> – the number of the mega-batch, starting from 0. I.e. for the first batch, this would be 0</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="etl.reader.reader.Reader.check_if_data_exists">
+<code class="descname">check_if_data_exists</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#etl.reader.reader.Reader.check_if_data_exists" title="Permalink to this definition">¶</a></dt>
+<dd><p>Checks if the directories or files with training and test data exists</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>None</p>
+</dd>
+<dt class="field-even">Raises</dt>
+<dd class="field-even"><p><strong>Exception</strong> – if the data is not found</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="etl.reader.reader.Reader.load_test_data">
+<code class="descname">load_test_data</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#etl.reader.reader.Reader.load_test_data" title="Permalink to this definition">¶</a></dt>
+<dd><p>It loads and prepares the test data to be fed to the input pipeline</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>a tuple with the filenames of the images and labels of the test data of the current mega-batch</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="etl.reader.reader.Reader.load_training_data">
+<code class="descname">load_training_data</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#etl.reader.reader.Reader.load_training_data" title="Permalink to this definition">¶</a></dt>
+<dd><p>It loads and prepares the training data to be fed to the input pipeline</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>a tuple with the filenames of the images and labels of the training data of the current mega-batch</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="etl.reader.reader.Reader.reload_training_data">
+<code class="descname">reload_training_data</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#etl.reader.reader.Reader.reload_training_data" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reloads the training data. It should be invoked after a change in the training data.
+In case the data is being stored as a class attribute, then that class attribute should be updated within this
+method.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-etl.reader.tfrecords_reader">
+<span id="etl-reader-tfrecords-reader-module"></span><h2>etl.reader.tfrecords_reader module<a class="headerlink" href="#module-etl.reader.tfrecords_reader" title="Permalink to this headline">¶</a></h2>
+<p>Module for reading a dataset stored in TFRecords</p>
+<dl class="class">
+<dt id="etl.reader.tfrecords_reader.TFRecordsReader">
+<em class="property">class </em><code class="descclassname">etl.reader.tfrecords_reader.</code><code class="descname">TFRecordsReader</code><span class="sig-paren">(</span><em>train_dirs: [&lt;class 'str'&gt;], validation_dir: str, train_mode: utils.train_modes.TrainMode</em><span class="sig-paren">)</span><a class="headerlink" href="#etl.reader.tfrecords_reader.TFRecordsReader" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#etl.reader.reader.Reader" title="etl.reader.reader.Reader"><code class="xref py py-class docutils literal notranslate"><span class="pre">etl.reader.reader.Reader</span></code></a></p>
+<p>Reader for datasets stored in TFRecords. Its only purpouse is to store the training and testing data paths</p>
+<dl class="method">
+<dt id="etl.reader.tfrecords_reader.TFRecordsReader.load_test_data">
+<code class="descname">load_test_data</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#etl.reader.tfrecords_reader.TFRecordsReader.load_test_data" title="Permalink to this definition">¶</a></dt>
+<dd><p>It loads and prepares the test data to be fed to the input pipeline</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>a tuple with the filenames of the images and labels of the test data of the current mega-batch</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="etl.reader.tfrecords_reader.TFRecordsReader.load_training_data">
+<code class="descname">load_training_data</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#etl.reader.tfrecords_reader.TFRecordsReader.load_training_data" title="Permalink to this definition">¶</a></dt>
+<dd><p>It loads and prepares the training data to be fed to the input pipeline</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>a tuple with the filenames of the images and labels of the training data of the current mega-batch</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="etl.reader.tfrecords_reader.TFRecordsReader.reload_training_data">
+<code class="descname">reload_training_data</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#etl.reader.tfrecords_reader.TFRecordsReader.reload_training_data" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reloads the training data. It should be invoked after a change in the training data.
+In case the data is being stored as a class attribute, then that class attribute should be updated within this
+method.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-etl.reader">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-etl.reader" title="Permalink to this headline">¶</a></h2>
+</div>
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="index.html">DILF</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="modules.html">DILF</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="errors.html">errors module</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="etl.html">etl package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="experiments.html">experiments package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="libs.html">libs package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="networks.html">networks package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="program_menu.html">program_menu module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="program_shell.html">program_shell module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="training.html">training package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="utils.html">utils package</a></li>
+</ul>
+</li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="index.html">Documentation overview</a><ul>
+  <li><a href="modules.html">DILF</a><ul>
+  <li><a href="etl.html">etl package</a><ul>
+      <li>Previous: <a href="etl.data.html" title="previous chapter">etl.data package</a></li>
+      <li>Next: <a href="experiments.html" title="next chapter">experiments package</a></li>
+  </ul></li>
+  </ul></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2019, Camilo Narvaez, David Munoz, Carlos Cobos.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 2.0.1</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="_sources/etl.reader.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

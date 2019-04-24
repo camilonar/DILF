@@ -1,0 +1,38 @@
+experiments.mnist package
+=========================
+
+Submodules
+----------
+
+experiments.mnist.mnist\_exp module
+-----------------------------------
+
+.. automodule:: experiments.mnist.mnist_exp
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+experiments.mnist.mnist\_exp\_rep module
+----------------------------------------
+
+.. automodule:: experiments.mnist.mnist_exp_rep
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+experiments.mnist.mnist\_exp\_rms module
+----------------------------------------
+
+.. automodule:: experiments.mnist.mnist_exp_rms
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+
+Module contents
+---------------
+
+.. automodule:: experiments.mnist
+    :members:
+    :undoc-members:
+    :show-inheritance:

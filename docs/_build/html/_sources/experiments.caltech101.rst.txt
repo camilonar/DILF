@@ -1,0 +1,38 @@
+experiments.caltech101 package
+==============================
+
+Submodules
+----------
+
+experiments.caltech101.caltech\_exp module
+------------------------------------------
+
+.. automodule:: experiments.caltech101.caltech_exp
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+experiments.caltech101.caltech\_exp\_rep module
+-----------------------------------------------
+
+.. automodule:: experiments.caltech101.caltech_exp_rep
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+experiments.caltech101.caltech\_exp\_rms module
+-----------------------------------------------
+
+.. automodule:: experiments.caltech101.caltech_exp_rms
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+
+Module contents
+---------------
+
+.. automodule:: experiments.caltech101
+    :members:
+    :undoc-members:
+    :show-inheritance:

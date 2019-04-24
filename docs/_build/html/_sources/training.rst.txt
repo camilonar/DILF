@@ -1,0 +1,19 @@
+training package
+================
+
+Subpackages
+-----------
+
+.. toctree::
+
+    training.config
+    training.support
+    training.trainer
+
+Module contents
+---------------
+
+.. automodule:: training
+    :members:
+    :undoc-members:
+    :show-inheritance:

@@ -1,0 +1,38 @@
+experiments.fashion\_mnist package
+==================================
+
+Submodules
+----------
+
+experiments.fashion\_mnist.fashion\_mnist\_exp module
+-----------------------------------------------------
+
+.. automodule:: experiments.fashion_mnist.fashion_mnist_exp
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+experiments.fashion\_mnist.fashion\_mnist\_exp\_rep module
+----------------------------------------------------------
+
+.. automodule:: experiments.fashion_mnist.fashion_mnist_exp_rep
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+experiments.fashion\_mnist.fashion\_mnist\_exp\_rms module
+----------------------------------------------------------
+
+.. automodule:: experiments.fashion_mnist.fashion_mnist_exp_rms
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+
+Module contents
+---------------
+
+.. automodule:: experiments.fashion_mnist
+    :members:
+    :undoc-members:
+    :show-inheritance:

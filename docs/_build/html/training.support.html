@@ -1,0 +1,196 @@
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <title>training.support package &#8212; DILF 1.0.0 documentation</title>
+    <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="_static/language_data.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="training.trainer package" href="training.trainer.html" />
+    <link rel="prev" title="training.config package" href="training.config.html" />
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="training-support-package">
+<h1>training.support package<a class="headerlink" href="#training-support-package" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="module-training.support.saver">
+<span id="training-support-saver-module"></span><h2>training.support.saver module<a class="headerlink" href="#module-training.support.saver" title="Permalink to this headline">¶</a></h2>
+<p>Module for saving and loading checkpoints</p>
+<dl class="class">
+<dt id="training.support.saver.Saver">
+<em class="property">class </em><code class="descclassname">training.support.saver.</code><code class="descname">Saver</code><a class="headerlink" href="#training.support.saver.Saver" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Saves and loads checkpoints of models</p>
+<dl class="method">
+<dt id="training.support.saver.Saver.maybe_load_model">
+<code class="descname">maybe_load_model</code><span class="sig-paren">(</span><em>sess</em>, <em>ckp_path: str</em><span class="sig-paren">)</span><a class="headerlink" href="#training.support.saver.Saver.maybe_load_model" title="Permalink to this definition">¶</a></dt>
+<dd><p>This method prepares the previously created neural network with the checkpoint data if a checkpoint is
+provided. It also loads any kind of additional Variable that is need for the training (like Data or Optimizer’s
+variables).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>sess</strong> – current session</p></li>
+<li><p><strong>ckp_path</strong> – the checkpoint path if it’s required to start the training from a checkpoint. A data path with
+the following structure is expected: <em>./checkpoints/dataset_name/config_name/checkpoint_name.ckpt</em>.
+If there is no checkpoint to be loaded then its value should be None.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>if a checkpoint has been successfully loaded then this method returns a tuple containing 4 values:
+the number of the current mega-batch (increment), iteration over the batch, iteration counting from the
+start of the training, and the time that the network has already been trained (counting from the start of
+the mega-batch) in that order. It returns a tuple of zeros if no checkpoint is loaded.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="training.support.saver.Saver.prepare">
+<code class="descname">prepare</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#training.support.saver.Saver.prepare" title="Permalink to this definition">¶</a></dt>
+<dd><p>Prepares all tensors and variables needed for proper checkpoint saving and loading. This method only prepares
+the variables used for the basic version of checkpoint loading</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="training.support.saver.Saver.save_model">
+<code class="descname">save_model</code><span class="sig-paren">(</span><em>sess</em>, <em>ckp_dir: str</em>, <em>iteration: int</em>, <em>total_iteration: int</em>, <em>increment: int</em>, <em>curr_time: float</em>, <em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#training.support.saver.Saver.save_model" title="Permalink to this definition">¶</a></dt>
+<dd><p>Saves all the variables of the model</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>sess</strong> – current session</p></li>
+<li><p><strong>ckp_dir</strong> – the path to the directory where the checkpoints are going to be saved</p></li>
+<li><p><strong>iteration</strong> – the current iteration number over the training data</p></li>
+<li><p><strong>total_iteration</strong> – the current iteration number over the training data, counting from the start of the
+training (that is, from the first batch of mega-batch 0)</p></li>
+<li><p><strong>increment</strong> – the number of the mega-batch</p></li>
+<li><p><strong>curr_time</strong> – the time that has passed since the beginning of the training of the current batch. This time
+must be in seconds</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-training.support">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-training.support" title="Permalink to this headline">¶</a></h2>
+</div>
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="index.html">DILF</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="modules.html">DILF</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="errors.html">errors module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="etl.html">etl package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="experiments.html">experiments package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="libs.html">libs package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="networks.html">networks package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="program_menu.html">program_menu module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="program_shell.html">program_shell module</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="training.html">training package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="utils.html">utils package</a></li>
+</ul>
+</li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="index.html">Documentation overview</a><ul>
+  <li><a href="modules.html">DILF</a><ul>
+  <li><a href="training.html">training package</a><ul>
+      <li>Previous: <a href="training.config.html" title="previous chapter">training.config package</a></li>
+      <li>Next: <a href="training.trainer.html" title="next chapter">training.trainer package</a></li>
+  </ul></li>
+  </ul></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2019, Camilo Narvaez, David Munoz, Carlos Cobos.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 2.0.1</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="_sources/training.support.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

@@ -1,0 +1,22 @@
+training.support package
+========================
+
+Submodules
+----------
+
+training.support.saver module
+-----------------------------
+
+.. automodule:: training.support.saver
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+
+Module contents
+---------------
+
+.. automodule:: training.support
+    :members:
+    :undoc-members:
+    :show-inheritance:

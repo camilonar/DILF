@@ -1,0 +1,86 @@
+networks package
+================
+
+Submodules
+----------
+
+networks.alex\_net module
+-------------------------
+
+.. automodule:: networks.alex_net
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+networks.caffe\_net module
+--------------------------
+
+.. automodule:: networks.caffe_net
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+networks.cifar\_tfnet module
+----------------------------
+
+.. automodule:: networks.cifar_tfnet
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+networks.dense\_net module
+--------------------------
+
+.. automodule:: networks.dense_net
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+networks.fashion\_mnist\_net module
+-----------------------------------
+
+.. automodule:: networks.fashion_mnist_net
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+networks.le\_net module
+-----------------------
+
+.. automodule:: networks.le_net
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+networks.nin module
+-------------------
+
+.. automodule:: networks.nin
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+networks.simple\_net module
+---------------------------
+
+.. automodule:: networks.simple_net
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+networks.vgg\_net module
+------------------------
+
+.. automodule:: networks.vgg_net
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+
+Module contents
+---------------
+
+.. automodule:: networks
+    :members:
+    :undoc-members:
+    :show-inheritance:

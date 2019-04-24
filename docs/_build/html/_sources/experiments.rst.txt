@@ -1,0 +1,51 @@
+experiments package
+===================
+
+Subpackages
+-----------
+
+.. toctree::
+
+    experiments.caltech101
+    experiments.caltech256
+    experiments.cifar10
+    experiments.cifar100
+    experiments.fashion_mnist
+    experiments.imagenet
+    experiments.mnist
+
+Submodules
+----------
+
+experiments.experiment module
+-----------------------------
+
+.. automodule:: experiments.experiment
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+experiments.experiments module
+------------------------------
+
+.. automodule:: experiments.experiments
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+experiments.tester module
+-------------------------
+
+.. automodule:: experiments.tester
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+
+Module contents
+---------------
+
+.. automodule:: experiments
+    :members:
+    :undoc-members:
+    :show-inheritance:

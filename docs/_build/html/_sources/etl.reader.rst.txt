@@ -1,0 +1,38 @@
+etl.reader package
+==================
+
+Submodules
+----------
+
+etl.reader.directory\_reader module
+-----------------------------------
+
+.. automodule:: etl.reader.directory_reader
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+etl.reader.reader module
+------------------------
+
+.. automodule:: etl.reader.reader
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+etl.reader.tfrecords\_reader module
+-----------------------------------
+
+.. automodule:: etl.reader.tfrecords_reader
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+
+Module contents
+---------------
+
+.. automodule:: etl.reader
+    :members:
+    :undoc-members:
+    :show-inheritance:

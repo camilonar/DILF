@@ -1,0 +1,18 @@
+etl package
+===========
+
+Subpackages
+-----------
+
+.. toctree::
+
+    etl.data
+    etl.reader
+
+Module contents
+---------------
+
+.. automodule:: etl
+    :members:
+    :undoc-members:
+    :show-inheritance:

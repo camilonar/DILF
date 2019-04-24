@@ -1,0 +1,170 @@
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <title>training.config package &#8212; DILF 1.0.0 documentation</title>
+    <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="_static/language_data.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="training.support package" href="training.support.html" />
+    <link rel="prev" title="training package" href="training.html" />
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="training-config-package">
+<h1>training.config package<a class="headerlink" href="#training-config-package" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="module-training.config.general_config">
+<span id="training-config-general-config-module"></span><h2>training.config.general_config module<a class="headerlink" href="#module-training.config.general_config" title="Permalink to this headline">¶</a></h2>
+<p>Module for the configuration of training that is going to be used.
+GeneralConfig has the configuration data for the whole training (including the incremental learning)</p>
+<dl class="class">
+<dt id="training.config.general_config.GeneralConfig">
+<em class="property">class </em><code class="descclassname">training.config.general_config.</code><code class="descname">GeneralConfig</code><span class="sig-paren">(</span><em>train_mode: utils.train_modes.TrainMode</em>, <em>learning_rate: float</em>, <em>summary_interval=100</em>, <em>check_interval=200</em>, <em>config_name='default'</em>, <em>model_name='dataset_default'</em><span class="sig-paren">)</span><a class="headerlink" href="#training.config.general_config.GeneralConfig" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>General configuration that it’s used for the whole training. E.g. if the training is composed of 5 different batches
+of data, then this part of the configuration is used for <strong>ALL</strong> of them</p>
+<dl class="method">
+<dt id="training.config.general_config.GeneralConfig.add_train_conf">
+<code class="descname">add_train_conf</code><span class="sig-paren">(</span><em>train_conf: training.config.megabatch_config.MegabatchConfig</em><span class="sig-paren">)</span><a class="headerlink" href="#training.config.general_config.GeneralConfig.add_train_conf" title="Permalink to this definition">¶</a></dt>
+<dd><p>Adds a MegabatchConfig object to the list of mega-batch-specific configurations. The objects must be added in
+the same order as how they are going to be used (i.e. the configuration for the first batch must be added first,
+for the second batch must be added second, …)</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>train_conf</strong> – a configuration for a mega batch of data</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-training.config.megabatch_config">
+<span id="training-config-megabatch-config-module"></span><h2>training.config.megabatch_config module<a class="headerlink" href="#module-training.config.megabatch_config" title="Permalink to this headline">¶</a></h2>
+<p>Module for the configuration of training that is going to be used.
+MegabatchConfig has the configuration data for a specific increment of data</p>
+<dl class="class">
+<dt id="training.config.megabatch_config.MegabatchConfig">
+<em class="property">class </em><code class="descclassname">training.config.megabatch_config.</code><code class="descname">MegabatchConfig</code><span class="sig-paren">(</span><em>epochs: int</em>, <em>ttime: int = None</em>, <em>batch_size=128</em><span class="sig-paren">)</span><a class="headerlink" href="#training.config.megabatch_config.MegabatchConfig" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Configuration for training based on a chunk of data. This is used for a specific increment of data</p>
+</dd></dl>
+
+</div>
+<div class="section" id="module-training.config">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-training.config" title="Permalink to this headline">¶</a></h2>
+</div>
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="index.html">DILF</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="modules.html">DILF</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="errors.html">errors module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="etl.html">etl package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="experiments.html">experiments package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="libs.html">libs package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="networks.html">networks package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="program_menu.html">program_menu module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="program_shell.html">program_shell module</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="training.html">training package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="utils.html">utils package</a></li>
+</ul>
+</li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="index.html">Documentation overview</a><ul>
+  <li><a href="modules.html">DILF</a><ul>
+  <li><a href="training.html">training package</a><ul>
+      <li>Previous: <a href="training.html" title="previous chapter">training package</a></li>
+      <li>Next: <a href="training.support.html" title="next chapter">training.support package</a></li>
+  </ul></li>
+  </ul></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2019, Camilo Narvaez, David Munoz, Carlos Cobos.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 2.0.1</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="_sources/training.config.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

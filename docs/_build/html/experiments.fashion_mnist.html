@@ -1,0 +1,207 @@
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <title>experiments.fashion_mnist package &#8212; DILF 1.0.0 documentation</title>
+    <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="_static/language_data.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="experiments.imagenet package" href="experiments.imagenet.html" />
+    <link rel="prev" title="experiments.cifar100 package" href="experiments.cifar100.html" />
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="experiments-fashion-mnist-package">
+<h1>experiments.fashion_mnist package<a class="headerlink" href="#experiments-fashion-mnist-package" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="module-experiments.fashion_mnist.fashion_mnist_exp">
+<span id="experiments-fashion-mnist-fashion-mnist-exp-module"></span><h2>experiments.fashion_mnist.fashion_mnist_exp module<a class="headerlink" href="#module-experiments.fashion_mnist.fashion_mnist_exp" title="Permalink to this headline">¶</a></h2>
+<p>Module for performing experiments over MNIST</p>
+<dl class="class">
+<dt id="experiments.fashion_mnist.fashion_mnist_exp.FashionMnistExperiment">
+<em class="property">class </em><code class="descclassname">experiments.fashion_mnist.fashion_mnist_exp.</code><code class="descname">FashionMnistExperiment</code><span class="sig-paren">(</span><em>train_dirs: [&lt;class 'str'&gt;], validation_dir: str, summary_interval=100, ckp_interval=200, checkpoint_key: str = None</em><span class="sig-paren">)</span><a class="headerlink" href="#experiments.fashion_mnist.fashion_mnist_exp.FashionMnistExperiment" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="experiments.html#experiments.experiment.Experiment" title="experiments.experiment.Experiment"><code class="xref py py-class docutils literal notranslate"><span class="pre">experiments.experiment.Experiment</span></code></a>, <code class="xref py py-class docutils literal notranslate"><span class="pre">abc.ABC</span></code></p>
+<p>Performs experiments over Fashion-MNIST according to the User input and pre-established configurations</p>
+<dl class="attribute">
+<dt id="experiments.fashion_mnist.fashion_mnist_exp.FashionMnistExperiment.data_input">
+<code class="descname">data_input</code><em class="property"> = None</em><a class="headerlink" href="#experiments.fashion_mnist.fashion_mnist_exp.FashionMnistExperiment.data_input" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="experiments.fashion_mnist.fashion_mnist_exp.FashionMnistExperiment.dataset_name">
+<code class="descname">dataset_name</code><em class="property"> = 'FASHION-MNIST'</em><a class="headerlink" href="#experiments.fashion_mnist.fashion_mnist_exp.FashionMnistExperiment.dataset_name" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="experiments.fashion_mnist.fashion_mnist_exp.FashionMnistExperiment.neural_net">
+<code class="descname">neural_net</code><em class="property"> = None</em><a class="headerlink" href="#experiments.fashion_mnist.fashion_mnist_exp.FashionMnistExperiment.neural_net" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-experiments.fashion_mnist.fashion_mnist_exp_rep">
+<span id="experiments-fashion-mnist-fashion-mnist-exp-rep-module"></span><h2>experiments.fashion_mnist.fashion_mnist_exp_rep module<a class="headerlink" href="#module-experiments.fashion_mnist.fashion_mnist_exp_rep" title="Permalink to this headline">¶</a></h2>
+<p>Experiment for MNIST dataset using the proposed representative-selection algorithm</p>
+<dl class="class">
+<dt id="experiments.fashion_mnist.fashion_mnist_exp_rep.FashionMnistExperimentRep">
+<em class="property">class </em><code class="descclassname">experiments.fashion_mnist.fashion_mnist_exp_rep.</code><code class="descname">FashionMnistExperimentRep</code><span class="sig-paren">(</span><em>train_dirs: [&lt;class 'str'&gt;], validation_dir: str, summary_interval=100, ckp_interval=200, checkpoint_key: str = None</em><span class="sig-paren">)</span><a class="headerlink" href="#experiments.fashion_mnist.fashion_mnist_exp_rep.FashionMnistExperimentRep" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#experiments.fashion_mnist.fashion_mnist_exp.FashionMnistExperiment" title="experiments.fashion_mnist.fashion_mnist_exp.FashionMnistExperiment"><code class="xref py py-class docutils literal notranslate"><span class="pre">experiments.fashion_mnist.fashion_mnist_exp.FashionMnistExperiment</span></code></a></p>
+<p>Performs experiments over FASHION-MNIST dataset using the proposed representative-selection algorithm</p>
+<dl class="attribute">
+<dt id="experiments.fashion_mnist.fashion_mnist_exp_rep.FashionMnistExperimentRep.general_config">
+<code class="descname">general_config</code><em class="property"> = None</em><a class="headerlink" href="#experiments.fashion_mnist.fashion_mnist_exp_rep.FashionMnistExperimentRep.general_config" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="experiments.fashion_mnist.fashion_mnist_exp_rep.FashionMnistExperimentRep.optimizer_name">
+<code class="descname">optimizer_name</code><em class="property"> = 'TR_REP'</em><a class="headerlink" href="#experiments.fashion_mnist.fashion_mnist_exp_rep.FashionMnistExperimentRep.optimizer_name" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="experiments.fashion_mnist.fashion_mnist_exp_rep.FashionMnistExperimentRep.trainer">
+<code class="descname">trainer</code><em class="property"> = None</em><a class="headerlink" href="#experiments.fashion_mnist.fashion_mnist_exp_rep.FashionMnistExperimentRep.trainer" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-experiments.fashion_mnist.fashion_mnist_exp_rms">
+<span id="experiments-fashion-mnist-fashion-mnist-exp-rms-module"></span><h2>experiments.fashion_mnist.fashion_mnist_exp_rms module<a class="headerlink" href="#module-experiments.fashion_mnist.fashion_mnist_exp_rms" title="Permalink to this headline">¶</a></h2>
+<p>Experiment for MNIST dataset using base RMSProp</p>
+<dl class="class">
+<dt id="experiments.fashion_mnist.fashion_mnist_exp_rms.FashionMnistExperimentRMSProp">
+<em class="property">class </em><code class="descclassname">experiments.fashion_mnist.fashion_mnist_exp_rms.</code><code class="descname">FashionMnistExperimentRMSProp</code><span class="sig-paren">(</span><em>train_dirs: [&lt;class 'str'&gt;], validation_dir: str, summary_interval=100, ckp_interval=200, checkpoint_key: str = None</em><span class="sig-paren">)</span><a class="headerlink" href="#experiments.fashion_mnist.fashion_mnist_exp_rms.FashionMnistExperimentRMSProp" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#experiments.fashion_mnist.fashion_mnist_exp.FashionMnistExperiment" title="experiments.fashion_mnist.fashion_mnist_exp.FashionMnistExperiment"><code class="xref py py-class docutils literal notranslate"><span class="pre">experiments.fashion_mnist.fashion_mnist_exp.FashionMnistExperiment</span></code></a></p>
+<p>Performs experiments over FASHION-MNIST dataset using RMSProp</p>
+<dl class="attribute">
+<dt id="experiments.fashion_mnist.fashion_mnist_exp_rms.FashionMnistExperimentRMSProp.general_config">
+<code class="descname">general_config</code><em class="property"> = None</em><a class="headerlink" href="#experiments.fashion_mnist.fashion_mnist_exp_rms.FashionMnistExperimentRMSProp.general_config" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="experiments.fashion_mnist.fashion_mnist_exp_rms.FashionMnistExperimentRMSProp.optimizer_name">
+<code class="descname">optimizer_name</code><em class="property"> = 'TR_BASE'</em><a class="headerlink" href="#experiments.fashion_mnist.fashion_mnist_exp_rms.FashionMnistExperimentRMSProp.optimizer_name" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="experiments.fashion_mnist.fashion_mnist_exp_rms.FashionMnistExperimentRMSProp.trainer">
+<code class="descname">trainer</code><em class="property"> = None</em><a class="headerlink" href="#experiments.fashion_mnist.fashion_mnist_exp_rms.FashionMnistExperimentRMSProp.trainer" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-experiments.fashion_mnist">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-experiments.fashion_mnist" title="Permalink to this headline">¶</a></h2>
+</div>
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="index.html">DILF</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="modules.html">DILF</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="errors.html">errors module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="etl.html">etl package</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="experiments.html">experiments package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="libs.html">libs package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="networks.html">networks package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="program_menu.html">program_menu module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="program_shell.html">program_shell module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="training.html">training package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="utils.html">utils package</a></li>
+</ul>
+</li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="index.html">Documentation overview</a><ul>
+  <li><a href="modules.html">DILF</a><ul>
+  <li><a href="experiments.html">experiments package</a><ul>
+      <li>Previous: <a href="experiments.cifar100.html" title="previous chapter">experiments.cifar100 package</a></li>
+      <li>Next: <a href="experiments.imagenet.html" title="next chapter">experiments.imagenet package</a></li>
+  </ul></li>
+  </ul></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2019, Camilo Narvaez, David Munoz, Carlos Cobos.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 2.0.1</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="_sources/experiments.fashion_mnist.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

@@ -1,0 +1,30 @@
+experiments.cifar100 package
+============================
+
+Submodules
+----------
+
+experiments.cifar100.cifar100\_exp module
+-----------------------------------------
+
+.. automodule:: experiments.cifar100.cifar100_exp
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+experiments.cifar100.cifar100\_exp\_rms module
+----------------------------------------------
+
+.. automodule:: experiments.cifar100.cifar100_exp_rms
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+
+Module contents
+---------------
+
+.. automodule:: experiments.cifar100
+    :members:
+    :undoc-members:
+    :show-inheritance:

@@ -1,0 +1,62 @@
+utils package
+=============
+
+Submodules
+----------
+
+utils.constants module
+----------------------
+
+.. automodule:: utils.constants
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+utils.default\_paths module
+---------------------------
+
+.. automodule:: utils.default_paths
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+utils.dir\_utils module
+-----------------------
+
+.. automodule:: utils.dir_utils
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+utils.exp\_helper module
+------------------------
+
+.. automodule:: utils.exp_helper
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+utils.read\_tensorboard module
+------------------------------
+
+.. automodule:: utils.read_tensorboard
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+utils.train\_modes module
+-------------------------
+
+.. automodule:: utils.train_modes
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+
+Module contents
+---------------
+
+.. automodule:: utils
+    :members:
+    :undoc-members:
+    :show-inheritance:

@@ -1,0 +1,427 @@
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <title>etl.data package &#8212; DILF 1.0.0 documentation</title>
+    <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="_static/language_data.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="etl.reader package" href="etl.reader.html" />
+    <link rel="prev" title="etl package" href="etl.html" />
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="etl-data-package">
+<h1>etl.data package<a class="headerlink" href="#etl-data-package" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="module-etl.data.caltech_256_data">
+<span id="etl-data-caltech-256-data-module"></span><h2>etl.data.caltech_256_data module<a class="headerlink" href="#module-etl.data.caltech_256_data" title="Permalink to this headline">¶</a></h2>
+<p>Module for the data pipeline of Caltech-256 dataset</p>
+<dl class="class">
+<dt id="etl.data.caltech_256_data.Caltech256Data">
+<em class="property">class </em><code class="descclassname">etl.data.caltech_256_data.</code><code class="descname">Caltech256Data</code><span class="sig-paren">(</span><em>general_config, train_dirs: [&lt;class 'str'&gt;], validation_dir: [&lt;class 'str'&gt;], buffer_size=1000, image_height=224, image_width=224</em><span class="sig-paren">)</span><a class="headerlink" href="#etl.data.caltech_256_data.Caltech256Data" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#etl.data.data.Data" title="etl.data.data.Data"><code class="xref py py-class docutils literal notranslate"><span class="pre">etl.data.data.Data</span></code></a></p>
+<p>Data pipeline for Caltech-256 dataset</p>
+<dl class="method">
+<dt id="etl.data.caltech_256_data.Caltech256Data.close">
+<code class="descname">close</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#etl.data.caltech_256_data.Caltech256Data.close" title="Permalink to this definition">¶</a></dt>
+<dd><p>Closes the pipeline</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-etl.data.caltech_data">
+<span id="etl-data-caltech-data-module"></span><h2>etl.data.caltech_data module<a class="headerlink" href="#module-etl.data.caltech_data" title="Permalink to this headline">¶</a></h2>
+<p>Module for the data pipeline of Caltech-101 dataset</p>
+<dl class="class">
+<dt id="etl.data.caltech_data.CaltechData">
+<em class="property">class </em><code class="descclassname">etl.data.caltech_data.</code><code class="descname">CaltechData</code><span class="sig-paren">(</span><em>general_config, train_dirs: [&lt;class 'str'&gt;], validation_dir: [&lt;class 'str'&gt;], buffer_size=1000, image_height=227, image_width=227</em><span class="sig-paren">)</span><a class="headerlink" href="#etl.data.caltech_data.CaltechData" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#etl.data.data.Data" title="etl.data.data.Data"><code class="xref py py-class docutils literal notranslate"><span class="pre">etl.data.data.Data</span></code></a></p>
+<p>Data pipeline for Caltech-101 dataset</p>
+<dl class="method">
+<dt id="etl.data.caltech_data.CaltechData.close">
+<code class="descname">close</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#etl.data.caltech_data.CaltechData.close" title="Permalink to this definition">¶</a></dt>
+<dd><p>Closes the pipeline</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-etl.data.cifar100_data">
+<span id="etl-data-cifar100-data-module"></span><h2>etl.data.cifar100_data module<a class="headerlink" href="#module-etl.data.cifar100_data" title="Permalink to this headline">¶</a></h2>
+<p>Module for the data pipeline of Cifar-10 dataset</p>
+<dl class="class">
+<dt id="etl.data.cifar100_data.Cifar100Data">
+<em class="property">class </em><code class="descclassname">etl.data.cifar100_data.</code><code class="descname">Cifar100Data</code><span class="sig-paren">(</span><em>general_config, train_dirs: [&lt;class 'str'&gt;], validation_dir: str, buffer_size=1000, image_height=224, image_width=224</em><span class="sig-paren">)</span><a class="headerlink" href="#etl.data.cifar100_data.Cifar100Data" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#etl.data.data.Data" title="etl.data.data.Data"><code class="xref py py-class docutils literal notranslate"><span class="pre">etl.data.data.Data</span></code></a></p>
+<p>Data pipeline for Cifar-100</p>
+<dl class="method">
+<dt id="etl.data.cifar100_data.Cifar100Data.close">
+<code class="descname">close</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#etl.data.cifar100_data.Cifar100Data.close" title="Permalink to this definition">¶</a></dt>
+<dd><p>Closes the pipeline</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-etl.data.cifar_data">
+<span id="etl-data-cifar-data-module"></span><h2>etl.data.cifar_data module<a class="headerlink" href="#module-etl.data.cifar_data" title="Permalink to this headline">¶</a></h2>
+<p>Module for the data pipeline of Cifar-10 dataset</p>
+<dl class="class">
+<dt id="etl.data.cifar_data.CifarData">
+<em class="property">class </em><code class="descclassname">etl.data.cifar_data.</code><code class="descname">CifarData</code><span class="sig-paren">(</span><em>general_config, train_dirs: [&lt;class 'str'&gt;], validation_dir: str, buffer_size=60000, image_height=32, image_width=32</em><span class="sig-paren">)</span><a class="headerlink" href="#etl.data.cifar_data.CifarData" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#etl.data.data.Data" title="etl.data.data.Data"><code class="xref py py-class docutils literal notranslate"><span class="pre">etl.data.data.Data</span></code></a></p>
+<p>Data pipeline for Cifar-10</p>
+<dl class="method">
+<dt id="etl.data.cifar_data.CifarData.close">
+<code class="descname">close</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#etl.data.cifar_data.CifarData.close" title="Permalink to this definition">¶</a></dt>
+<dd><p>Closes the pipeline</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-etl.data.data">
+<span id="etl-data-data-module"></span><h2>etl.data.data module<a class="headerlink" href="#module-etl.data.data" title="Permalink to this headline">¶</a></h2>
+<p>Module for data input pipelines.
+Features:
+1. Can load training and testing data separately
+2. Adaptable for multiple mega-batches (changing the mega-batch and reloading data). This is useful for incremental
+training
+3. The pipeline retrieves tensors that can be feed to the training module as needed</p>
+<dl class="class">
+<dt id="etl.data.data.Data">
+<em class="property">class </em><code class="descclassname">etl.data.data.</code><code class="descname">Data</code><span class="sig-paren">(</span><em>general_config: training.config.general_config.GeneralConfig</em>, <em>data_reader: etl.reader.reader.Reader</em>, <em>image_shape: tuple</em>, <em>buffer_size=128</em><span class="sig-paren">)</span><a class="headerlink" href="#etl.data.data.Data" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">abc.ABC</span></code></p>
+<p>This class acts as an interface for data pipelines.</p>
+<dl class="simple">
+<dt>This structure is based in the pipelines from:</dt><dd><p><a class="reference external" href="https://github.com/ischlag/tensorflow-input-pipelines">https://github.com/ischlag/tensorflow-input-pipelines</a></p>
+</dd>
+</dl>
+<dl class="method">
+<dt id="etl.data.data.Data.build_test_data_tensor">
+<code class="descname">build_test_data_tensor</code><span class="sig-paren">(</span><em>shuffle=False</em>, <em>augmentation=False</em><span class="sig-paren">)</span><a class="headerlink" href="#etl.data.data.Data.build_test_data_tensor" title="Permalink to this definition">¶</a></dt>
+<dd><p>Builds the test data tensor</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>shuffle</strong> – specifies whether the data is going to be randomly shuffled or not</p></li>
+<li><p><strong>augmentation</strong> – specifies if there is going to be performed a data augmentation process</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>a tuple of an Iterator and two Tensors, where the first value is an Iterator for the
+data, the second value is the tensor of test data and the third value is the tensor with the corresponding
+labels of the data. NOTE: the Iterator must be initialized before the testing and label data tensors can be
+used to feed data into a model</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="etl.data.data.Data.build_train_data_tensor">
+<code class="descname">build_train_data_tensor</code><span class="sig-paren">(</span><em>shuffle=True</em>, <em>augmentation=False</em>, <em>skip_count=0</em><span class="sig-paren">)</span><a class="headerlink" href="#etl.data.data.Data.build_train_data_tensor" title="Permalink to this definition">¶</a></dt>
+<dd><p>Builds the training data tensor</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>shuffle</strong> – specifies whether the data is going to be randomly shuffled or not</p></li>
+<li><p><strong>augmentation</strong> – specifies if there is going to be performed a data augmentation process</p></li>
+<li><p><strong>skip_count</strong> – number of elements to be skipped from the Dataset. If the dataset.batch is applied, then each
+batch is treated as 1 element, so in that case, skip_count is the number of batches to be skipped from the
+Dataset.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>a tuple of an Iterator and two Tensors, where the first value is an Iterator for the
+data, the second value is the tensor of training data and the third value is the tensor with the
+corresponding labels of the data. NOTE: the Iterator must be initialized before the training and label data
+tensors can be used to feed data into a model</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="etl.data.data.Data.change_dataset_part">
+<code class="descname">change_dataset_part</code><span class="sig-paren">(</span><em>index: int</em><span class="sig-paren">)</span><a class="headerlink" href="#etl.data.data.Data.change_dataset_part" title="Permalink to this definition">¶</a></dt>
+<dd><p>It changes the target archive of directory from which the training data is being extracted. This ONLY applies
+to the training data and NOT to the test data.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>index</strong> – the number of the mega-batch, starting from 0. I.e. for the first batch, this would be 0</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="etl.data.data.Data.close">
+<code class="descname">close</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#etl.data.data.Data.close" title="Permalink to this definition">¶</a></dt>
+<dd><p>Closes the pipeline</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="etl.data.data.Data.prepare_basic_dataset">
+<code class="descname">prepare_basic_dataset</code><span class="sig-paren">(</span><em>dataset</em>, <em>cache=False</em>, <em>shuffle=False</em>, <em>batch=True</em>, <em>repeat=False</em>, <em>skip_count=0</em>, <em>shuffle_seed=None</em><span class="sig-paren">)</span><a class="headerlink" href="#etl.data.data.Data.prepare_basic_dataset" title="Permalink to this definition">¶</a></dt>
+<dd><p>Helper function that applies simple and common operations over a dataset such as shuffling, batching (according
+to the current MegabatchConfig), repeating (for multiple epochs), skipping data and using cache</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>dataset</strong> – the dataset to be transformed</p></li>
+<li><p><strong>cache</strong> – whether or not the dataset should be cached in RAM</p></li>
+<li><p><strong>shuffle</strong> – whether or not the dataset should be shuffled</p></li>
+<li><p><strong>batch</strong> – wheter or not the dataset should be batched</p></li>
+<li><p><strong>repeat</strong> – whether or not multiple epochs should be used. If True, the dataset is repeated according to
+as specified in the current MegabatchConfig</p></li>
+<li><p><strong>skip_count</strong> – number of elements to be skipped from the Dataset. If batch=True, then each
+batch is treated as 1 element, so in that case, skip_count is the number of batches to be skipped from the
+Dataset.</p></li>
+<li><p><strong>shuffle_seed</strong> – the seed for the shuffling operation</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>a processed dataset</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>tf.Dataset</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-etl.data.fashion_mnist_data">
+<span id="etl-data-fashion-mnist-data-module"></span><h2>etl.data.fashion_mnist_data module<a class="headerlink" href="#module-etl.data.fashion_mnist_data" title="Permalink to this headline">¶</a></h2>
+<p>Module for the data pipeline of MNIST dataset.</p>
+<dl class="class">
+<dt id="etl.data.fashion_mnist_data.FashionMnistData">
+<em class="property">class </em><code class="descclassname">etl.data.fashion_mnist_data.</code><code class="descname">FashionMnistData</code><span class="sig-paren">(</span><em>general_config, train_dirs: [&lt;class 'str'&gt;], validation_dir: str, buffer_size=60000, image_height=28, image_width=28</em><span class="sig-paren">)</span><a class="headerlink" href="#etl.data.fashion_mnist_data.FashionMnistData" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#etl.data.data.Data" title="etl.data.data.Data"><code class="xref py py-class docutils literal notranslate"><span class="pre">etl.data.data.Data</span></code></a></p>
+<p>Data pipeline for Fashion-MNIST dataset</p>
+<dl class="method">
+<dt id="etl.data.fashion_mnist_data.FashionMnistData.close">
+<code class="descname">close</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#etl.data.fashion_mnist_data.FashionMnistData.close" title="Permalink to this definition">¶</a></dt>
+<dd><p>Closes the pipeline</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-etl.data.imagenet_data">
+<span id="etl-data-imagenet-data-module"></span><h2>etl.data.imagenet_data module<a class="headerlink" href="#module-etl.data.imagenet_data" title="Permalink to this headline">¶</a></h2>
+<p>Usage:
+import tensorflow as tf
+sess = tf.Session()</p>
+<dl class="simple">
+<dt>with tf.device(‘/cpu:0’):</dt><dd><p>from datasets.imagenet import imagenet_data
+d = imagenet_data(batch_size=64, sess=sess)
+image_batch_tensor, target_batch_tensor = d.build_train_data_tensor()</p>
+</dd>
+</dl>
+<p>image_batch, target_batch = sess.run([image_batch_tensor, target_batch_tensor])
+print(image_batch.shape)
+print(target_batch.shape)</p>
+<dl class="class">
+<dt id="etl.data.imagenet_data.ImagenetData">
+<em class="property">class </em><code class="descclassname">etl.data.imagenet_data.</code><code class="descname">ImagenetData</code><span class="sig-paren">(</span><em>general_config, train_dirs: [&lt;class 'str'&gt;], validation_dir: str, buffer_size=1000, image_height=256, image_width=256</em><span class="sig-paren">)</span><a class="headerlink" href="#etl.data.imagenet_data.ImagenetData" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#etl.data.data.Data" title="etl.data.data.Data"><code class="xref py py-class docutils literal notranslate"><span class="pre">etl.data.data.Data</span></code></a></p>
+<p>Creates an input pipeline for Tiny Imagenet ready to be fed into a model.</p>
+<dl class="simple">
+<dt>memory calculation:</dt><dd><p>1 image is 299*299*3*4 bytes = ~1MB
+1024MB RAM = ~1000 images</p>
+</dd>
+<dt>empirical memory usage with default config:</dt><dd><p>TensorFlow +500MB
+imagenet_utils (loading all paths and labels) +400MB
+build input pipeline and fill queues +2.2GB</p>
+</dd>
+</dl>
+<ul class="simple">
+<li><p>decodes jpg images</p></li>
+<li><p>scales images into a uniform size</p></li>
+<li><p>shuffles the input if specified</p></li>
+<li><p>builds batches</p></li>
+</ul>
+<dl class="method">
+<dt id="etl.data.imagenet_data.ImagenetData.close">
+<code class="descname">close</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#etl.data.imagenet_data.ImagenetData.close" title="Permalink to this definition">¶</a></dt>
+<dd><p>Closes the pipeline</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-etl.data.mnist_data">
+<span id="etl-data-mnist-data-module"></span><h2>etl.data.mnist_data module<a class="headerlink" href="#module-etl.data.mnist_data" title="Permalink to this headline">¶</a></h2>
+<p>Module for the data pipeline of MNIST dataset.</p>
+<dl class="class">
+<dt id="etl.data.mnist_data.MnistData">
+<em class="property">class </em><code class="descclassname">etl.data.mnist_data.</code><code class="descname">MnistData</code><span class="sig-paren">(</span><em>general_config, train_dirs: [&lt;class 'str'&gt;], validation_dir: str, buffer_size=60000, image_height=32, image_width=32</em><span class="sig-paren">)</span><a class="headerlink" href="#etl.data.mnist_data.MnistData" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#etl.data.data.Data" title="etl.data.data.Data"><code class="xref py py-class docutils literal notranslate"><span class="pre">etl.data.data.Data</span></code></a></p>
+<p>Data pipeline for MNIST dataset</p>
+<dl class="method">
+<dt id="etl.data.mnist_data.MnistData.close">
+<code class="descname">close</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#etl.data.mnist_data.MnistData.close" title="Permalink to this definition">¶</a></dt>
+<dd><p>Closes the pipeline</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-etl.data">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-etl.data" title="Permalink to this headline">¶</a></h2>
+</div>
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="index.html">DILF</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="modules.html">DILF</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="errors.html">errors module</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="etl.html">etl package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="experiments.html">experiments package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="libs.html">libs package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="networks.html">networks package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="program_menu.html">program_menu module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="program_shell.html">program_shell module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="training.html">training package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="utils.html">utils package</a></li>
+</ul>
+</li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="index.html">Documentation overview</a><ul>
+  <li><a href="modules.html">DILF</a><ul>
+  <li><a href="etl.html">etl package</a><ul>
+      <li>Previous: <a href="etl.html" title="previous chapter">etl package</a></li>
+      <li>Next: <a href="etl.reader.html" title="next chapter">etl.reader package</a></li>
+  </ul></li>
+  </ul></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2019, Camilo Narvaez, David Munoz, Carlos Cobos.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 2.0.1</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="_sources/etl.data.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>
