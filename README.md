@@ -1,4 +1,4 @@
-﻿# DILF: Deep Incremental Learning Framework
+# DILF: Deep Incremental Learning Framework
 
 DILF is a simple framework built over TensorFlow specifically designed to facilitate the implementation and testing of Incremental Learning algorithms that make use of Neural Networks.
 
@@ -18,6 +18,11 @@ Each module is extensible in itself, however, a number of hook methods are provi
   - Python 3.6+
   - TensorFlow 1.9.0+
   - Numpy 1.14.5+
+  
+In order to use the matplotlib plotting module, you also need these dependencies:
+
+  - matplotlib
+  - colour
 
 #### Basic Installation
 Since DILF is based in Python scripts, no installation is requred, besides installation of its dependencies. You can install the dependencies using the following command:
@@ -33,7 +38,7 @@ python program_menu.py
 ```
 An example execution of ```program_shell.py``` might look like this:
 ```sh
-python program_shell.py --dataset=MNIST --optimizer=TR_BASE --checkpoint_key=0-2000 --summaries_interval=600 --checkpoints_interval=2000 --seed=123 --train_mode=INCREMENTAL --dataset_path=../datasets/MNIST
+python program_shell.py --dataset=MNIST --optimizer=TR_BASE --checkpoint_key=0-2000 --summaries_interval=600 --checkpoints_interval=2000 --seed=123 --train_mode=INCREMENTAL --dataset_path=../datasets/MNIST --testing_scenario=0
 ```
 You can see the purpouse of each flag with:
 ```sh
@@ -42,10 +47,11 @@ python program_shell.py -h
 However, the most important arguments are:
 - ```dataset```: with this, you set which dataset is going to be used. Currently supported datasets are: CIFAR (CIFAR-10), MNIST, FASHION_MNIST and CALTECH (Caltech 101)
 - ```optimizer```: with this, you set which training algorithm is going to be used. Currently supported algorithms are: TR_BASE (RMSProp) and TR_REP (Training with Representatives)
+- ```testing_scenario```: an Experiment may have multiple testing scenarios, which are predefined tests with fixed parameters under the same structure (e.g. RMSProp with lr=0.001, or lr=0.1). You can specify which scenario you want to execute (By default is scenario 0). You can inspect the code of each Experiment for details on its scenarios (a functionality to easily access scenarios descriptions will be added in the future)
 
 You can also use ```utils/read_tensorbooard.py``` to create a TensorBoard folder with the average results of multiple tests. This is useful for investigation, since the average of multiple runs is used when reporting results. To use this function, you can use a command like this:
 ```sh
-python utils\read_tensorboard.py --input_folder=.\summaries\MNIST\TR_BASE --output_folder=results\folder\location -m "accuracy" "loss"
+python utils\read_tensorboard.py --input_folder=.\summaries\MNIST\TR_BASE_INCREMENTAL_0 --output_folder=results\folder\location -m "accuracy" "loss"
 ```
 # Adding new algorithms with DILF
 Here, we present a simple tutorial to implement the algorithm RMSProp for training over MNIST using LeNet. The implementation of other algorithms and the integration of other datasets uses similar steps. However, please note that this is a basic example, and is in fact possible to change and extend any part of the framework if you desire. In order to do that, we strongly recommend reading the framework documentation.
@@ -127,7 +133,7 @@ It is important to note that if, for example, you desire to execute an experimen
 To execute the Experiment, first it's required to have a folder with the data that is going to be used for training and testing (i.e. the Dataset). Then, an instance of the class must be created, and then the methods *prepare_all* and *execute_experiment* must be executed, like this:
 ```py
 exp = MnistRMSPropExperiment(train_dirs, validation_dir, summaries_interval, ckp_interval, ckp_key)
-exp.prepare_all(train_mode)
+exp.prepare_all(train_mode, training_scenario)
 exp.execute_experiment()
 ```
 While an Experiment is executed, the results of the training are stored in real time in log files that can be accesed by using TensorBoard, like this:

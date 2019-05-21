@@ -31,6 +31,7 @@ class GeneralConfig(object):
         self.check_interval = check_interval
         self.config_name = config_name
         self.model_name = model_name
+        self.scenario_id = 0
         self.train_configurations = []  # It stores the configurations for each mega batch of training data
 
     def add_train_conf(self, train_conf: MegabatchConfig):

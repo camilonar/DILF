@@ -17,7 +17,7 @@ class RepresentativesTrainer(Trainer):
     Trains with the algorithm that uses RMSProp and representatives selection for incremental learning
     """
 
-    def __init__(self, config: GeneralConfig, model: Network, pipeline: Data, tensor_x: tf.Tensor, tensor_y: tf.Tensor,
+    def __init__(self, config, model: Network, pipeline: Data, tensor_x: tf.Tensor, tensor_y: tf.Tensor,
                  tester: Tester = None, checkpoint: str = None):
         super().__init__(config, model, pipeline, tensor_x, tensor_y, tester=tester, checkpoint=checkpoint)
 
@@ -25,45 +25,10 @@ class RepresentativesTrainer(Trainer):
         self.class_count = [0 for _ in range(model.get_output().shape[1])]
         self.weights = tf.placeholder(tf.float32, [None])
 
-        self.buffered_reps = []
-        self.buffer = 1  # Number of buffer iterations. Interval at which the representatives will be updated
-
-        # TODO temporal placeholders for tests
-        test = 1
-        # Test for random with minimum values (1%)
-        if test == 1:
-            if self.config.model_name == 'FASHION-MNIST':
-                self.presel = 40  # Number of preselected samples
-                self.rep_per_batch = 40  # Number of representatives that are passed in each batch
-                self.rep_per_class = 50  # Maximum number of representatives per class
-            elif self.config.model_name == 'CALTECH-101':
-                self.presel = 20  # Number of preselected samples
-                self.rep_per_batch = 20  # Number of representatives that are passed in each batch
-                self.rep_per_class = 1  # Maximum number of representatives per class
-            else:
-                self.presel = 20  # Number of preselected samples
-                self.rep_per_batch = 20  # Number of representatives that are passed in each batch
-                self.rep_per_class = 50  # Maximum number of representatives per class
-
-        # Tests for random maximum values (10%)
-        elif test == 2:
-            if self.config.model_name == 'FASHION-MNIST':
-                self.presel = 40  # Number of preselected samples
-                self.rep_per_batch = 40  # Number of representatives that are passed in each batch
-                self.rep_per_class = 500  # Maximum number of representatives per class
-            elif self.config.model_name == 'CALTECH-101':
-                self.presel = 20  # Number of preselected samples
-                self.rep_per_batch = 20  # Number of representatives that are passed in each batch
-                self.rep_per_class = 10  # Maximum number of representatives per class
-            else:
-                self.presel = 20  # Number of preselected samples
-                self.rep_per_batch = 20  # Number of representatives that are passed in each batch
-                self.rep_per_class = 500  # Maximum number of representatives per class
-
-        else:
-            self.presel = 20  # Number of preselected samples
-            self.rep_per_batch = 20  # Number of representatives that are passed in each batch
-            self.rep_per_class = 50  # Maximum number of representatives per class
+        self.buffer_sizeed_reps = []
+        self.memory_size = config.memory_size
+        self.n_candidates = config.n_candidates
+        self.buffer_size = config.buffer_size
 
     def _create_loss(self, tensor_y: tf.Tensor, net_output: tf.Tensor):
         return tf.losses.softmax_cross_entropy(tf.multiply(tensor_y, self.mask_tensor),
@@ -98,13 +63,13 @@ class RepresentativesTrainer(Trainer):
 
         # Modifies the list of representatives (random)
         if n_reps == 0:
-            self.__random_buffer(image_batch, target_batch, outputs, total_it, megabatch)
+            self.__random_buffer_size(image_batch, target_batch, outputs, total_it, megabatch)
         else:
-            self.__random_buffer(image_batch[:-n_reps], target_batch[:-n_reps], outputs[:-n_reps], total_it,
+            self.__random_buffer_size(image_batch[:-n_reps], target_batch[:-n_reps], outputs[:-n_reps], total_it,
                                  megabatch)
-        if total_it % self.buffer == 0:
-            self.__random_modify_representatives(self.buffered_reps)
-            self.__clear_buffer()
+        if total_it % self.buffer_size == 0:
+            self.__random_modify_representatives(self.buffer_sizeed_reps)
+            self.__clear_buffer_size()
 
         return ts, loss
 
@@ -114,18 +79,18 @@ class RepresentativesTrainer(Trainer):
 
         :return: a list of representatives.
             The method returns an empty array **[]** if the number of representatives is less than the minimum
-            number of representatives per batch (rep_per_batch)
+            number of representatives per batch (n_candidates)
         """
         repr_list = np.concatenate(self.representatives)
         if repr_list.size > 0:
-            samples = np.random.choice(repr_list, size=min(self.rep_per_batch, repr_list.size), replace=False)
+            samples = np.random.choice(repr_list, size=min(self.n_candidates, repr_list.size), replace=False)
             return samples
         else:
             return []
 
-    def __random_buffer(self, image_batch, target_batch, outputs, iteration, megabatch):
+    def __random_buffer_size(self, image_batch, target_batch, outputs, iteration, megabatch):
         """
-        Creates a buffer based in random sampling
+        Creates a buffer_size based in random sampling
 
         :param image_batch: the list of images of a batch
         :param target_batch: the list of one hot labels of a batch
@@ -139,17 +104,17 @@ class RepresentativesTrainer(Trainer):
         difs = [0 for _ in outputs]
         image_batch = np.asarray(image_batch)[rand_indices]  # The data is ordered according to the indices
         target_batch = np.asarray(target_batch)[rand_indices]
-        for i in range(min(self.presel, len(image_batch))):
-            self.buffered_reps.append(
+        for i in range(min(self.n_candidates, len(image_batch))):
+            self.buffer_sizeed_reps.append(
                 Representative(image_batch[i].copy(), target_batch[i].copy(), difs[i], iteration, megabatch,
                                outputs[i].copy()))
 
     def __random_modify_representatives(self, candidate_representatives):
         """
             Modifies the representatives list according to the new data by selecting representatives randomly from the
-            buffer and the current list of representatives
+            buffer_size and the current list of representatives
 
-            param candidate_representatives: the preselected representatives from the buffer
+            param candidate_representatives: the n_candidatesected representatives from the buffer_size
             :return: None
         """
         for i, _ in enumerate(candidate_representatives):
@@ -160,16 +125,16 @@ class RepresentativesTrainer(Trainer):
         for i in range(len(self.representatives)):
             rand_indices = np.random.permutation(len(self.representatives[i]))
             self.representatives[i] = [self.representatives[i][j] for j in rand_indices]
-            self.representatives[i] = self.representatives[i][-min(self.rep_per_class, len(self.representatives[i])):]
+            self.representatives[i] = self.representatives[i][-min(self.memory_size, len(self.representatives[i])):]
 
         self.__recalculate_weights(self.representatives)
 
-    def __clear_buffer(self):
+    def __clear_buffer_size(self):
         """
-        Clears the buffer
+        Clears the buffer_size
         :return: None
         """
-        self.buffered_reps = []
+        self.buffer_sizeed_reps = []
 
     def __recalculate_weights(self, representatives):
         """
@@ -179,8 +144,8 @@ class RepresentativesTrainer(Trainer):
         """
         total_count = np.sum(self.class_count)
         # This version proposes that the total weight of representatives is calculated from the proportion of candidate
-        # representatives respect to the batch. E.g. a batch of 100 images and 10 are preselected, total_weight = 10
-        total_weight = (self.config.train_configurations[0].batch_size * 1.0) / self.presel
+        # representatives respect to the batch. E.g. a batch of 100 images and 10 are n_candidatesected, total_weight = 10
+        total_weight = (self.config.train_configurations[0].batch_size * 1.0) / self.n_candidates
         # The total_weight is adjusted to the proportion between candidate representatives and actual representatives
         total_weight *= (total_count / np.sum([len(cls) for cls in representatives]))
         probs = [count / total_count for count in self.class_count]

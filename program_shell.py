@@ -67,12 +67,22 @@ def create_parser():
         default=None,
         help='(Optional) The path to the dataset root directory. If not set then the default paths are used instead'
              'for the supported datasets.')
+    parser.add_argument(
+        '-ts',
+        '--testing_scenario',
+        type=int,
+        default=0,
+        help=""""(Optional) the ID of the testing scenario to be executed (defaults to 0). A testing scenario is
+        one in which only the param values of the Experiment are changed but the fundamental structure of the Experiment
+        remains (e.g. using RMSProp with lr=0.01 or lr=0.0001). The ID of a TS corresponds to a number n>=0, and is a
+        position inside an array."""
+    )
 
     return parser
 
 
 def unpack_variables(dataset: str, optimizer: str, checkpoint_key: str, s_interval: int, ckp_interval: int, seed: int,
-                     train_mode: str, dataset_path: str):
+                     train_mode: str, dataset_path: str, testing_scenario: int):
     """
     Helper function that is used as a proxy for easily unpacking variables from the corresponding parser
 
@@ -84,10 +94,11 @@ def unpack_variables(dataset: str, optimizer: str, checkpoint_key: str, s_interv
     :param seed: the seed for random numbers
     :param train_mode: Indicates the training mode that is going to be used
     :param dataset_path: the path to the root of the dataset
+    :param testing_scenario: the ID of the testing scenario of the Experiment
     :return: the values of the unpacked arguments in the same order
     """
     return dataset, optimizer, checkpoint_key, s_interval, ckp_interval, seed, TrainMode.__members__.get(
-        train_mode), dataset_path
+        train_mode), dataset_path, testing_scenario
 
 
 def main():
@@ -98,13 +109,13 @@ def main():
     """
     parser = create_parser()
     args = parser.parse_args()
-    dataset, optimizer, checkpoint_key, s_interval, ckp_interval, seed, train_mode, dataset_path = unpack_variables(
-        **vars(args))
+    dataset, optimizer, checkpoint_key, s_interval, ckp_interval, seed, train_mode, dataset_path, testing_scenario = \
+        unpack_variables(**vars(args))
     train_dirs, validation_dir = paths.get_paths_from_dataset(dataset, dataset_path)
     helper.print_config(dataset, optimizer, checkpoint_key, s_interval, ckp_interval, seed, train_mode, train_dirs,
-                        validation_dir, is_menu=False)
+                        validation_dir, testing_scenario, is_menu=False)
     helper.perform_experiment(dataset, optimizer, checkpoint_key, s_interval, ckp_interval, seed, train_mode,
-                              train_dirs, validation_dir)
+                              train_dirs, validation_dir, testing_scenario)
     return 0
 
 

@@ -7,7 +7,8 @@ from utils.train_modes import TrainMode
 
 
 def print_config(dataset: str, optimizer: str, checkpoint_key: str, s_interval: int, ckp_interval: int, seed: int,
-                 train_mode: TrainMode, train_dirs: [str], validation_dir: str, is_menu: bool = True):
+                 train_mode: TrainMode, train_dirs: [str], validation_dir: str, testing_scenario=0,
+                 is_menu: bool = True):
     """
     Prints the configuration selected by the user
 
@@ -21,6 +22,7 @@ def print_config(dataset: str, optimizer: str, checkpoint_key: str, s_interval: 
     :param train_mode: Indicates the training mode that is going to be used
     :param train_dirs: array of strings corresponding to the paths of each one of the mega-batches for training
     :param validation_dir: a string corresponding to the path of the testing data
+    :param testing_scenario: the ID of the testing scenario of the Experiment
     :param is_menu: boolean value. If set to True the menu version is used (asks for extra input)
     """
     print("\n--------------------------------------------------------")
@@ -32,6 +34,7 @@ def print_config(dataset: str, optimizer: str, checkpoint_key: str, s_interval: 
     print("-Checkpoint interval: {} iterations".format(ckp_interval))
     print("-Seed: {}".format(seed))
     print("-The test mode is {}".format(train_mode))
+    print("-The testing scenario ID is {}".format(testing_scenario))
     print("-Training data directories: \n\t{}".format(train_dirs))
     print("-Validation data directory: \n\t{}".format(validation_dir))
     print("--------------------------------------------------------\n")
@@ -41,7 +44,7 @@ def print_config(dataset: str, optimizer: str, checkpoint_key: str, s_interval: 
 
 
 def perform_experiment(dataset_name: str, optimizer_name: str, checkpoint_key: str, s_interval: int, ckp_interval: int,
-                       seed: int, train_mode: TrainMode, train_dirs: [str], validation_dir: str):
+                       seed: int, train_mode: TrainMode, train_dirs: [str], validation_dir: str, testing_scenario: int):
     """
     Prepares and performs the experiment according to the configuration given by the user
 
@@ -54,11 +57,12 @@ def perform_experiment(dataset_name: str, optimizer_name: str, checkpoint_key: s
     :param train_mode: Indicates the training mode that is going to be used
     :param train_dirs: array of strings corresponding to the paths of each one of the mega-batches for training
     :param validation_dir: a string corresponding to the path of the testing data
+    :param testing_scenario: the ID of the testing scenario of the Experiment
     :return: None
     """
     const.SEED = seed
     factory = Experiments.get_experiment(optimizer_name, dataset_name)
     exp = factory(train_dirs, validation_dir, s_interval, ckp_interval, checkpoint_key)
 
-    exp.prepare_all(train_mode)
+    exp.prepare_all(train_mode, testing_scenario)
     exp.execute_experiment()

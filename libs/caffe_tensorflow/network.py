@@ -68,7 +68,7 @@ class Network(ABC):
         print("Loading networks weights for transfer learning from {}".format(data_path))
         if not train_layers:
             train_layers = []
-        data_dict = np.load(data_path, encoding='bytes').item()
+        data_dict = np.load(data_path, encoding='bytes', allow_pickle=True).item()
         for op_name in data_dict:
             if op_name not in train_layers:
                 with tf.variable_scope(op_name, reuse=True):

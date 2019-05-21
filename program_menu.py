@@ -140,13 +140,16 @@ def configure_optimizer(curr_optimizer: str):
 
     while True:
         print("[B] Simple RMSProp (Base optimizer)")
-        print("[R] Incremental Random Representative Sampling")
+        print("[N] Incremental Random Representative Sampling (NIL)")
+        print("[R] Incremental Representative Sampling with BvSB and Crowding Distance (RILBC)")
         print("[X] Cancel Operation and return to Main Menu")
         response = input("Select an optimizer: ").upper()
         if response == 'B':
             response = const.TR_BASE
+        elif response == 'N':
+            response = const.TR_NIL
         elif response == 'R':
-            response = const.TR_REP
+            response = const.TR_RILBC
         elif response == 'X':
             break
         else:
@@ -344,12 +347,13 @@ def main():
     :return: None
     """
     train_mode = const.TRAIN_MODE
+    testing_scenario = 0
     dataset, optimizer, checkpoint, s_interval, ckp_interval, seed = ask_for_configuration()
     train_dirs, validation_dir = paths.get_paths_from_dataset(dataset)
     helper.print_config(dataset, optimizer, checkpoint, s_interval, ckp_interval, seed, train_mode,
-                        train_dirs, validation_dir)
+                        train_dirs, validation_dir, testing_scenario)
     helper.perform_experiment(dataset, optimizer, checkpoint, s_interval, ckp_interval, seed, train_mode,
-                              train_dirs, validation_dir)
+                              train_dirs, validation_dir, testing_scenario)
     return 0
 
 

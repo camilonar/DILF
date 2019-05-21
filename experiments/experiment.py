@@ -70,7 +70,7 @@ class Experiment(ABC):
     def _prepare_trainer(self):
         """
         Prepares the trainer that is required by the User. All the other preparations (e.g. _prepare_config,
-        _prepare_neural_network) must be completed before this method is used, otherwise, there may be unexpected
+        _prepare_neural_network) must be completed before this method is used, otherwise, it may result in unexpected
         behavior
 
         :return: None
@@ -80,7 +80,10 @@ class Experiment(ABC):
     def _prepare_config(self, str_optimizer: str, train_mode: TrainMode):
         """
         This method creates and saves the proper Configuration for the training according to the pre-established
-        conditions of each dataset
+        conditions of each dataset. Please note that the resulting configuration may be later changed if multiple
+        testing scenarios are defined. In this case, the configuration here defined should serve as the base for
+        the other scenarios, and it will be override for the configuration of the requested testing scenario (see
+        prepare_all implementation for more details).
 
         :param str_optimizer: a string that represents the chosen Trainer.
         :param train_mode: Indicates the training mode that is going to be used
@@ -122,19 +125,64 @@ class Experiment(ABC):
         image_shape.insert(0, None)
         self.input_tensor = tf.placeholder(tf.float32, shape=image_shape)
 
-    def prepare_all(self, train_mode: TrainMode):
+    @staticmethod
+    def _add_scenario(current_scenarios, new_scenario, scenario_desc: str):
+        """
+        Appends a scenario to the current lists of scenarios
+
+        :param current_scenarios: a list with the current scenarios
+        :param new_scenario: a GeneralConfig object with the configuration for the scenario
+        :param scenario_desc: a description for the scenario
+        :return: a list with shape [len(current_scenarios)+1, 2]. Each row contains [scenario, scenario_desc]
+        """
+        if current_scenarios is None or len(current_scenarios) == 0:
+            return [[new_scenario, scenario_desc]]
+        new_scenario.scenario_id = len(current_scenarios)
+        current_scenarios.append([new_scenario, scenario_desc])
+        return current_scenarios
+
+    def _prepare_scenarios(self, base_config):
+        """
+        Prepares the testing scenarios. To do that, the base GeneralConfig is modified and multiple scenarios are
+        added. The hook implementation only considers the existence of one scenario: the one defined in prepare_config
+
+        :param base_config: the base configuration to be used for the scenarios. This configuration should be the one
+        previously created in _prepare_config, and it is advised to be used as a base for creating the testing
+        scenarios. For example:
+            scenarios = None
+            scenarios = self._add_scenario(scenarios, base_config, 'Base Configuration') # Scenario 0
+            my_scenario = base_config.copy() # Copies all the parameters already defined in the configuration
+            my_scenario.learn_rate = 2 # Changes only 1 parameter
+            scenarios = self._add_scenario(scenarios, my_scenario, 'Demo scenario') # Scenario 1
+            return scenarios
+        :return: a list with shape [N, 2]. Each row contains [scenario, scenario_desc]
+        """
+        return self._add_scenario([], base_config, 'Default Testing Scenario')
+
+    def prepare_all(self, train_mode: TrainMode, testing_scenario=0):
         """
         It prepares the Experiment object for the test, according to the various parameters given up to this point and
         also according to the corresponding dataset to which the concrete Experiment is associated.
         This method calls ALL the _prepare methods defined in the base class.
 
         :param train_mode: Indicates the training mode that is going to be used
+        :param testing_scenario: the ID of the testing scenario to be executed (defaults to 0). A testing scenario is
+        one in which only the param values of the Experiment are changed but the fundamental structure of the Experiment
+        remains (e.g. using RMSProp with lr=0.01 or lr=0.0001). The ID of a TS corresponds to a number n>=0, and is a
+        position inside an array.
         :return: None
         """
         tf.reset_default_graph()
         tf.set_random_seed(const.SEED)
         np.random.seed(const.SEED)
         self._prepare_config(self.optimizer_name, train_mode)
+        scenarios = self._prepare_scenarios(self.general_config)
+        try:
+            print("Scenario description: {}".format(scenarios[testing_scenario][1]))
+            self.general_config.__dict__.update(scenarios[testing_scenario][0].__dict__)
+        except IndexError:
+            raise IndexError("The Testing Scenario with ID {} is not defined in the Experiment {}".format(
+                testing_scenario, self.__class__))
         self._prepare_data_pipeline()
         self._prepare_placeholders()
         self._prepare_neural_network()

@@ -21,7 +21,10 @@ class DirectoryReader(Reader):
 
     def __init__(self, train_dirs: [str], validation_dir: str, train_mode: TrainMode):
         super().__init__(train_dirs, validation_dir, train_mode)
-        self.categories = sorted(os.listdir(self.curr_path))
+        self.categories = []
+        for path in train_dirs:
+            self.categories.extend(os.listdir(path))
+        self.categories = list(dict.fromkeys(self.categories))
         self.val_filenames, self.val_labels = self._find_image_files(validation_dir, self.categories)
         self.train_filenames, self.train_labels = self._find_image_files(self.curr_path, self.categories)
 
@@ -57,7 +60,7 @@ class DirectoryReader(Reader):
             *path/class_name/*images*. For example:
                     101_ObjectCategories/train/accordion/*.jpg (non-incremental)
                     101_ObjectCategories/train/Increment0/accordion/*.jpg (incremental)
-        :param categories: list of strings that contain the caltech dataset categories
+        :param categories: list of strings that contain the dataset categories
         :return: a tuple with two lists, the first one represents the paths of images data and the second one is an
             integer that represents the correct category of the image.
         """
@@ -66,6 +69,9 @@ class DirectoryReader(Reader):
         # load all images in folder path
         for i, category in enumerate(categories):
             print("LOAD CATEGORY", category)
+            if not os.path.exists(path + "/" + category):
+                print("CATEGORY {} wasn't found in this megabatch".format(category))
+                continue
             for f in os.listdir(path + "/" + category):
                 ext = os.path.splitext(f)[1]
                 if ext.lower() not in valid_ext:

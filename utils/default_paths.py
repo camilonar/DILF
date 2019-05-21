@@ -16,7 +16,7 @@ from errors import OptionNotSupportedError
 
 # -------------Default locations for datasets------------
 
-__DATASET_PATH = os.path.join("..", "datasets")
+__DATASET_PATH = os.path.join("..", "data")
 MNIST_PATH = os.path.join(__DATASET_PATH, "MNIST_EXTRA")
 """
 Default path for the directory where MNIST is stored
@@ -54,7 +54,7 @@ def get_alexnet_weights_path():
     :return: a string corresponding to a relative path
     :rtype: str
     """
-    return "../transfer_learning/bvlc_alexnet.npy"
+    return "../data/transfer_learning/bvlc_alexnet.npy"
 
 
 def get_vgg16_weights_path():
